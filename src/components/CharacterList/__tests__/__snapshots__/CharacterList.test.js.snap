@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterList should display characters list 1`] = `
+<div>
+  <ul>
+    <CharacterListItem
+      character={
+        Object {
+          "id": 1,
+          "name": "Ironman",
+        }
+      }
+      key="1"
+    />
+    <CharacterListItem
+      character={
+        Object {
+          "id": 2,
+          "name": "Thor",
+        }
+      }
+      key="2"
+    />
+    <CharacterListItem
+      character={
+        Object {
+          "id": 3,
+          "name": "Black Widow",
+        }
+      }
+      key="3"
+    />
+  </ul>
+</div>
+`;
