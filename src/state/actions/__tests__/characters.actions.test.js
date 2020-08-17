@@ -15,6 +15,11 @@ import {
   FETCH_CHARACTERS_ERROR
 } from '../types';
 import { initialState } from '../../reducers/characters.reducer';
+import {
+  MARVEL_API_URL,
+  CHARACTERS_ENDPOINT,
+  API_KEY
+} from '../../../constants/config.constants';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -52,11 +57,14 @@ describe('Characters Actions', () => {
   it('should dispatch fetch success action when fetching done', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, successAction];
-    fetchMock.getOnce('../../data/characters.json', {
-      body: {
-        data: charactersMock
+    fetchMock.getOnce(
+      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}`,
+      {
+        body: {
+          data: charactersMock
+        }
       }
-    });
+    );
     return store.dispatch(fetchCharacters()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
@@ -65,7 +73,10 @@ describe('Characters Actions', () => {
   it('should dispatch fetch error action when fetching failed', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, errorAction];
-    fetchMock.getOnce('../../data/characters.json', Promise.reject(error));
+    fetchMock.getOnce(
+      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}`,
+      Promise.reject(error)
+    );
     return store.dispatch(fetchCharacters()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });

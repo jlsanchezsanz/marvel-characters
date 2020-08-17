@@ -22,7 +22,7 @@ describe('charactersReducer', () => {
   it('should initialize characters if success', () => {
     const state = charactersReducer(undefined, {
       type: FETCH_CHARACTERS_SUCCESS,
-      payload: charactersMock
+      payload: charactersMock.data
     });
     expect(state).toEqual({ ...initialState, characters: charactersMock.data.results });
   });

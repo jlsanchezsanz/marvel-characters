@@ -15,7 +15,7 @@ export function charactersReducer(state = initialState, action) {
     case FETCH_CHARACTERS_START:
       return { ...state, isLoading: true };
     case FETCH_CHARACTERS_SUCCESS:
-      return { ...state, characters: action.payload.data.results, isLoading: false };
+      return { ...state, characters: action.payload.results, isLoading: false };
     case FETCH_CHARACTERS_ERROR:
       return { ...state, error: action.error, isLoading: false };
     default:

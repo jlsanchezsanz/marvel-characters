@@ -3,8 +3,11 @@ import {
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_ERROR
 } from './types';
-
-const CHARACTERS_ENDPOINT = '../../data/characters.json';
+import {
+  MARVEL_API_URL,
+  CHARACTERS_ENDPOINT,
+  API_KEY
+} from '../../constants/config.constants';
 
 export function fetchCharactersStart() {
   return {
@@ -28,7 +31,7 @@ export function fetchCharactersError(error) {
 
 export const fetchCharacters = () => (dispatch) => {
   dispatch(fetchCharactersStart());
-  return fetch(CHARACTERS_ENDPOINT)
+  return fetch(`${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}`)
     .then((response) => response.json())
     .then(({ data }) => dispatch(fetchCharactersSuccess(data)))
     .catch((error) => dispatch(fetchCharactersError(error)));
