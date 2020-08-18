@@ -21,6 +21,11 @@ exports[`CharacterDetailsContainer should display character details 1`] = `
   }
 >
   <CharacterDetailsContainer
+    character={
+      Object {
+        "id": "1011334",
+      }
+    }
     dispatch={[Function]}
     match={
       Object {
@@ -40,7 +45,13 @@ exports[`CharacterDetailsContainer should display character details 1`] = `
       }
     }
   >
-    <Component />
+    <Component
+      character={
+        Object {
+          "id": "1011334",
+        }
+      }
+    />
   </CharacterDetailsContainer>
 </Connect(CharacterDetailsContainer)>
 `;

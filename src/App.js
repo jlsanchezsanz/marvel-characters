@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import CharacterList from './components/CharacterList';
 import { fetchCharacters } from './state/actions/characters.actions';
+import CharacterListContainer from './components/CharacterListContainer';
+import CharacterDetailsContainer from './components/CharacterDetailsContainer';
 
 function App({ dispatch, characters }) {
   useEffect(() => {
@@ -11,9 +13,14 @@ function App({ dispatch, characters }) {
   }, []);
 
   return (
-    <div className='App'>
-      <CharacterList characters={characters} />
-    </div>
+    <Router>
+      <div className='App'>
+        <Switch>
+          <Route exact path='/' component={CharacterListContainer} />
+          <Route path='/:id' component={CharacterDetailsContainer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

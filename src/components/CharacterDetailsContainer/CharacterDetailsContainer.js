@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CharacterDetails from './CharacterDetails';
 
 function CharacterDetailsContainer({ character, isLoading }) {
-  return isLoading ? (
+  return !character ? (
     <p>Loading...</p>
   ) : (
     <CharacterDetails character={character} />
@@ -13,7 +13,7 @@ function CharacterDetailsContainer({ character, isLoading }) {
 
 const mapStateToProps = (state, ownProps) => ({
   character: state.charactersReducer.characters.find(
-    (character) => character.id.toString() === ownProps.match.params.is
+    (character) => character.id.toString() === ownProps.match.params.id
   ),
   isLoading: state.charactersReducer.isLoading
 });

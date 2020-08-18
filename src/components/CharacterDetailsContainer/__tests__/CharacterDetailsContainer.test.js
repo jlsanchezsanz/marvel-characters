@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 
 import CharacterDetailsContainer from '../CharacterDetailsContainer';
 import { mockStore } from '../../../state/__mocks__/store';
-import { charactersMock } from '../../../mocks/characters.mock';
 
 jest.mock('../CharacterDetails', () => () => <></>);
 
@@ -28,7 +27,7 @@ describe('CharacterDetailsContainer', () => {
 
   it('should display character details', () => {
     component = setUpMount(
-      { charactersReducer: { characters: charactersMock.data.results } },
+      { charactersReducer: { characters: [{ id: '1011334' }] } },
       { params: { id: '1011334' } }
     );
     expect(component).toMatchSnapshot();

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import CharacterListItem from './CharacterListItem';
 
@@ -8,7 +9,9 @@ export default function CharacterList({ characters }) {
     <div>
       <ul>
         {characters.map((character) => (
-          <CharacterListItem character={character} key={character.id} />
+          <Link to={`/${character.id}`} key={`link-${character.id}`}>
+            <CharacterListItem character={character} key={character.id} />
+          </Link>
         ))}
       </ul>
     </div>
