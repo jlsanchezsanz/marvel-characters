@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterDetails should display characters list 1`] = `
+<Fragment>
+  <div
+    className="card"
+  >
+    <img
+      alt="3-D Man"
+      className="card-img-top"
+      src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+    />
+    <div
+      className="card-body"
+    >
+      <h5
+        className="card-title"
+      >
+        3-D Man
+      </h5>
+    </div>
+  </div>
+</Fragment>
+`;
