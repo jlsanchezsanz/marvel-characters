@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CharacterListItem from './CharacterListItem/CharacterListItem';
+
+import CharacterListItem from './CharacterListItem';
 
 export default function CharacterList({ characters }) {
   return (

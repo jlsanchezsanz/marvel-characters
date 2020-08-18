@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import CharacterListItem from '../CharacterListItem';
-import { charactersMock } from '../../../../mocks/characters.mock';
+import { charactersMock } from '../../../../../mocks/characters.mock';
 
 const setUpShallow = (character) => {
   const component = shallow(<CharacterListItem character={character} />);
