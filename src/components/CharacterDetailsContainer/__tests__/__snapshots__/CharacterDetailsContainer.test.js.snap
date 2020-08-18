@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterDetailsContainer should display character details 1`] = `
+<Connect(CharacterDetailsContainer)
+  match={
+    Object {
+      "params": Object {
+        "id": "1011334",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CharacterDetailsContainer
+    dispatch={[Function]}
+    match={
+      Object {
+        "params": Object {
+          "id": "1011334",
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <Component />
+  </CharacterDetailsContainer>
+</Connect(CharacterDetailsContainer)>
+`;
+
+exports[`CharacterDetailsContainer should display loading message while no character 1`] = `
+<Connect(CharacterDetailsContainer)
+  match={
+    Object {
+      "params": Object {},
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <CharacterDetailsContainer
+    dispatch={[Function]}
+    isLoading={true}
+    match={
+      Object {
+        "params": Object {},
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <p>
+      Loading...
+    </p>
+  </CharacterDetailsContainer>
+</Connect(CharacterDetailsContainer)>
+`;
