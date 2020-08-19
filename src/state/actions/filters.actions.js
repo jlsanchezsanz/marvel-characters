@@ -1,7 +1,8 @@
 import { UPDATE_FILTERS } from './types';
 
-export function updateFilters() {
+export function updateFilters(payload) {
   return {
-    type: UPDATE_FILTERS
+    type: UPDATE_FILTERS,
+    payload
   };
 }

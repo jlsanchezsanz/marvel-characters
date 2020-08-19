@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import CharacterList from './CharacterList';
+import FiltersContainer from './FiltersContainer';
 import { fetchCharacters } from '../../state/actions/characters.actions';
 
 function CharacterListContainer({ characters, isLoading, dispatch, orderBy }) {
@@ -9,10 +10,15 @@ function CharacterListContainer({ characters, isLoading, dispatch, orderBy }) {
     dispatch(fetchCharacters(orderBy));
   }, [dispatch, orderBy]);
 
-  return isLoading ? (
-    <p>Loading...</p>
-  ) : (
-    <CharacterList characters={characters} />
+  return (
+    <div>
+      <FiltersContainer />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <CharacterList characters={characters} />
+      )}
+    </div>
   );
 }
 

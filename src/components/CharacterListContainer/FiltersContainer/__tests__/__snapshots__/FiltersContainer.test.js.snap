@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FiltersContainer should render component 1`] = `
+<Connect(FiltersContainer)
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [MockFunction],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <FiltersContainer
+    dispatch={[MockFunction]}
+    orderBy="name"
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [MockFunction],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <form>
+      <select
+        className="form-control"
+        name="orderBy"
+        onChange={[Function]}
+        value="name"
+      >
+        <option
+          value="name"
+        >
+          A-Z
+        </option>
+        <option
+          value="-name"
+        >
+          Z-A
+        </option>
+      </select>
+    </form>
+  </FiltersContainer>
+</Connect(FiltersContainer)>
+`;

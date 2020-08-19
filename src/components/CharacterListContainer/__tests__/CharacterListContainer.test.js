@@ -6,6 +6,7 @@ import { mockStore } from '../../../state/__mocks__/store';
 import { charactersMock } from '../../../mocks/characters.mock';
 
 jest.mock('../CharacterList', () => () => <></>);
+jest.mock('../FiltersContainer', () => () => <></>);
 
 const setUpMount = (initialState) => {
   const store = mockStore(initialState);
@@ -26,7 +27,7 @@ describe('CharacterListContainer', () => {
 
   it('should display characters list', () => {
     component = setUpMount({
-      charactersReducer: { characters: charactersMock.data.results },
+      charactersReducer: { characters: [{}, {}] },
       filtersReducer: { orderBy: 'name' }
     });
     expect(component).toMatchSnapshot();
