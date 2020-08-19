@@ -5,10 +5,16 @@ import CharacterList from './CharacterList';
 import FiltersContainer from './FiltersContainer';
 import { fetchCharacters } from '../../state/actions/characters.actions';
 
-function CharacterListContainer({ characters, isLoading, dispatch, orderBy }) {
+function CharacterListContainer({
+  characters,
+  isLoading,
+  dispatch,
+  orderBy,
+  nameStartsWith
+}) {
   useEffect(() => {
-    dispatch(fetchCharacters(orderBy));
-  }, [dispatch, orderBy]);
+    dispatch(fetchCharacters(orderBy, nameStartsWith));
+  }, [dispatch, orderBy, nameStartsWith]);
 
   return (
     <div>
@@ -25,7 +31,8 @@ function CharacterListContainer({ characters, isLoading, dispatch, orderBy }) {
 const mapStateToProps = (state) => ({
   characters: state.charactersReducer.characters,
   isLoading: state.charactersReducer.isLoading,
-  orderBy: state.filtersReducer.orderBy
+  orderBy: state.filtersReducer.orderBy,
+  nameStartsWith: state.filtersReducer.nameStartsWith
 });
 
 export default connect(mapStateToProps)(CharacterListContainer);

@@ -37,6 +37,7 @@ describe('Characters Actions', () => {
     type: FETCH_CHARACTERS_ERROR,
     error
   };
+  const endpoint = `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name&nameStartsWith=spi`;
 
   afterEach(() => {
     fetchMock.restore();
@@ -57,15 +58,12 @@ describe('Characters Actions', () => {
   it('should dispatch fetch success action when fetching done', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, successAction];
-    fetchMock.getOnce(
-      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name`,
-      {
-        body: {
-          data: charactersMock
-        }
+    fetchMock.getOnce(endpoint, {
+      body: {
+        data: charactersMock
       }
-    );
-    return store.dispatch(fetchCharacters('name')).then(() => {
+    });
+    return store.dispatch(fetchCharacters('name', 'spi')).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -73,11 +71,8 @@ describe('Characters Actions', () => {
   it('should dispatch fetch error action when fetching failed', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, errorAction];
-    fetchMock.getOnce(
-      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name`,
-      Promise.reject(error)
-    );
-    return store.dispatch(fetchCharacters('name')).then(() => {
+    fetchMock.getOnce(endpoint, Promise.reject(error));
+    return store.dispatch(fetchCharacters('name', 'spi')).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

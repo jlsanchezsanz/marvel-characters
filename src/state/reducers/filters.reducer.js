@@ -1,7 +1,8 @@
 import { UPDATE_FILTERS } from '../actions/types';
 
 export const initialState = {
-  orderBy: 'name'
+  orderBy: 'name',
+  nameStartsWith: ''
 };
 
 export function filtersReducer(state = initialState, action) {

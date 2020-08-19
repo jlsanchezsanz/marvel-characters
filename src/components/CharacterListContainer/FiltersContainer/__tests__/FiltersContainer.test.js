@@ -21,14 +21,44 @@ describe('FiltersContainer', () => {
   });
 
   it('should update filters on orderBy change', () => {
-    const payload = { orderBy: '-name' };
-    const component = setUpMount({ filtersReducer: payload });
+    const name = 'orderBy';
+    const value = '-name';
+    const component = setUpMount({ filtersReducer: {} });
     const select = component.find('select');
 
     expect(store.dispatch).not.toHaveBeenCalled();
-    select.simulate('change', { target: { value: '-name' } });
+    select.simulate('change', { target: { value, name } });
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
-    expect(store.dispatch).toHaveBeenCalledWith(updateFilters(payload));
+    expect(store.dispatch).toHaveBeenCalledWith(
+      updateFilters({ [name]: value })
+    );
+  });
+
+  it('should update filters on nameStartsWith change', () => {
+    const name = 'nameStartsWith';
+    const value = 'spi';
+    const component = setUpMount({ filtersReducer: {} });
+    const input = component.find('input');
+
+    expect(store.dispatch).not.toHaveBeenCalled();
+    input.simulate('change', { target: { value, name } });
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledWith(
+      updateFilters({ [name]: value })
+    );
+  });
+
+  it('should not update filters on nameStartsWith change if length < 3', () => {
+    const name = 'nameStartsWith';
+    const value = 'sp';
+    const component = setUpMount({ filtersReducer: {} });
+    const input = component.find('input');
+
+    expect(store.dispatch).not.toHaveBeenCalled();
+    input.simulate('change', { target: { value, name } });
+
+    expect(store.dispatch).not.toHaveBeenCalled();
   });
 });

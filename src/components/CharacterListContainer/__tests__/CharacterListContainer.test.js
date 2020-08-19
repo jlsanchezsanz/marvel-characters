@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 
 import CharacterListContainer from '../CharacterListContainer';
 import { mockStore } from '../../../state/__mocks__/store';
-import { charactersMock } from '../../../mocks/characters.mock';
 
 jest.mock('../CharacterList', () => () => <></>);
 jest.mock('../FiltersContainer', () => () => <></>);

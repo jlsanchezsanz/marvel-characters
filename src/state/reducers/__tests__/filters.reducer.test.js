@@ -7,11 +7,12 @@ describe('filtersReducer', () => {
     expect(state).toEqual(initialState);
   });
 
-  it('should set "orderBy" value', () => {
+  it('should update filters', () => {
+    const payload = { orderBy: '-name', nameStartsWith: 'spi' };
     const state = filtersReducer(undefined, {
       type: UPDATE_FILTERS,
-      payload: { orderBy: '-name' }
+      payload
     });
-    expect(state).toEqual({ ...initialState, orderBy: '-name' });
+    expect(state).toEqual({ ...initialState, ...payload });
   });
 });
