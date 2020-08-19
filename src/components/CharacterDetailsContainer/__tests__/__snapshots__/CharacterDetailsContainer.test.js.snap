@@ -12,7 +12,7 @@ exports[`CharacterDetailsContainer should display character details 1`] = `
   store={
     Object {
       "clearActions": [Function],
-      "dispatch": [Function],
+      "dispatch": [MockFunction],
       "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
@@ -22,11 +22,13 @@ exports[`CharacterDetailsContainer should display character details 1`] = `
 >
   <CharacterDetailsContainer
     character={
-      Object {
-        "id": "1011334",
-      }
+      Array [
+        Object {
+          "id": 1011334,
+        },
+      ]
     }
-    dispatch={[Function]}
+    dispatch={[MockFunction]}
     match={
       Object {
         "params": Object {
@@ -37,7 +39,7 @@ exports[`CharacterDetailsContainer should display character details 1`] = `
     store={
       Object {
         "clearActions": [Function],
-        "dispatch": [Function],
+        "dispatch": [MockFunction],
         "getActions": [Function],
         "getState": [Function],
         "replaceReducer": [Function],
@@ -47,9 +49,11 @@ exports[`CharacterDetailsContainer should display character details 1`] = `
   >
     <Component
       character={
-        Object {
-          "id": "1011334",
-        }
+        Array [
+          Object {
+            "id": 1011334,
+          },
+        ]
       }
     />
   </CharacterDetailsContainer>
@@ -66,7 +70,19 @@ exports[`CharacterDetailsContainer should display loading message while no chara
   store={
     Object {
       "clearActions": [Function],
-      "dispatch": [Function],
+      "dispatch": [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
       "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
@@ -75,7 +91,21 @@ exports[`CharacterDetailsContainer should display loading message while no chara
   }
 >
   <CharacterDetailsContainer
-    dispatch={[Function]}
+    dispatch={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            undefined,
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     isLoading={true}
     match={
       Object {
@@ -85,7 +115,19 @@ exports[`CharacterDetailsContainer should display loading message while no chara
     store={
       Object {
         "clearActions": [Function],
-        "dispatch": [Function],
+        "dispatch": [MockFunction] {
+          "calls": Array [
+            Array [
+              undefined,
+            ],
+          ],
+          "results": Array [
+            Object {
+              "type": "return",
+              "value": undefined,
+            },
+          ],
+        },
         "getActions": [Function],
         "getState": [Function],
         "replaceReducer": [Function],
