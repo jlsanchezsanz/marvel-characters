@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import { fetchCharacters } from './state/actions/characters.actions';
 import CharacterListContainer from './components/CharacterListContainer';
 import CharacterDetailsContainer from './components/CharacterDetailsContainer';
 
-function App({ dispatch, characters }) {
-  useEffect(() => {
-    dispatch(fetchCharacters());
-  }, []);
-
+export default function App() {
   return (
     <Router>
       <div className='App'>
@@ -23,11 +17,3 @@ function App({ dispatch, characters }) {
     </Router>
   );
 }
-
-const mapStateToParams = (state) => ({
-  characters: state.charactersReducer.characters,
-  isLoading: state.charactersReducer.isLoading,
-  error: state.charactersReducer.error
-});
-
-export default connect(mapStateToParams)(App);

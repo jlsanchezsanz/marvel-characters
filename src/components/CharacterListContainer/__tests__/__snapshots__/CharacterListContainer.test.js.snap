@@ -3615,6 +3615,7 @@ exports[`CharacterListContainer should display characters list 1`] = `
       ]
     }
     dispatch={[Function]}
+    orderBy="name"
     store={
       Object {
         "clearActions": [Function],
@@ -7248,6 +7249,7 @@ exports[`CharacterListContainer should display loading message while loading 1`]
   <CharacterListContainer
     dispatch={[Function]}
     isLoading={true}
+    orderBy="name"
     store={
       Object {
         "clearActions": [Function],

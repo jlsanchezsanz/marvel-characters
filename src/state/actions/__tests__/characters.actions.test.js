@@ -58,14 +58,14 @@ describe('Characters Actions', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, successAction];
     fetchMock.getOnce(
-      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}`,
+      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name`,
       {
         body: {
           data: charactersMock
         }
       }
     );
-    return store.dispatch(fetchCharacters()).then(() => {
+    return store.dispatch(fetchCharacters('name')).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -74,10 +74,10 @@ describe('Characters Actions', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, errorAction];
     fetchMock.getOnce(
-      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}`,
+      `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name`,
       Promise.reject(error)
     );
-    return store.dispatch(fetchCharacters()).then(() => {
+    return store.dispatch(fetchCharacters('name')).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

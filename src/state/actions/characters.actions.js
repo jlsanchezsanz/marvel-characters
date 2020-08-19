@@ -29,9 +29,11 @@ export function fetchCharactersError(error) {
   };
 }
 
-export const fetchCharacters = () => (dispatch) => {
+export const fetchCharacters = (orderBy) => (dispatch) => {
   dispatch(fetchCharactersStart());
-  return fetch(`${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}`)
+  return fetch(
+    `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=${orderBy}`
+  )
     .then((response) => response.json())
     .then(({ data }) => dispatch(fetchCharactersSuccess(data)))
     .catch((error) => dispatch(fetchCharactersError(error)));

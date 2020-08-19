@@ -17,13 +17,17 @@ describe('CharacterListContainer', () => {
   let component;
 
   it('should display loading message while loading', () => {
-    component = setUpMount({ charactersReducer: { isLoading: true } });
+    component = setUpMount({
+      charactersReducer: { isLoading: true },
+      filtersReducer: { orderBy: 'name' }
+    });
     expect(component).toMatchSnapshot();
   });
 
   it('should display characters list', () => {
     component = setUpMount({
-      charactersReducer: { characters: charactersMock.data.results }
+      charactersReducer: { characters: charactersMock.data.results },
+      filtersReducer: { orderBy: 'name' }
     });
     expect(component).toMatchSnapshot();
   });

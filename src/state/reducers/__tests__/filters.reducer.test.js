@@ -7,11 +7,11 @@ describe('filtersReducer', () => {
     expect(state).toEqual(initialState);
   });
 
-  it('should set "sortBy" value', () => {
+  it('should set "orderBy" value', () => {
     const state = filtersReducer(undefined, {
       type: UPDATE_FILTERS,
-      payload: { sortBy: '-name' }
+      payload: { orderBy: '-name' }
     });
-    expect(state).toEqual({ ...initialState, sortBy: '-name' });
+    expect(state).toEqual({ ...initialState, orderBy: '-name' });
   });
 });
