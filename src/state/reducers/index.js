@@ -5,7 +5,7 @@ import { characterDetailsReducer } from './character-details.reducer';
 import { filtersReducer } from './filters.reducer';
 
 export default combineReducers({
-  charactersReducer,
-  characterDetailsReducer,
-  filtersReducer
+  characters: charactersReducer,
+  characterDetails: characterDetailsReducer,
+  filters: filtersReducer
 });

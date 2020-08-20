@@ -29,10 +29,10 @@ function CharacterListContainer({
 }
 
 const mapStateToProps = (state) => ({
-  characters: state.charactersReducer.characters,
-  isLoading: state.charactersReducer.isLoading,
-  orderBy: state.filtersReducer.orderBy,
-  nameStartsWith: state.filtersReducer.nameStartsWith
+  characters: state.characters.characters,
+  isLoading: state.characters.isLoading,
+  orderBy: state.filters.orderBy,
+  nameStartsWith: state.filters.nameStartsWith
 });
 
 export default connect(mapStateToProps)(CharacterListContainer);

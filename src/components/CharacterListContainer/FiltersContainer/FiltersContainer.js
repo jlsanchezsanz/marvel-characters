@@ -48,7 +48,7 @@ function FiltersContainer({ dispatch, orderBy }) {
 }
 
 const mapStateToProps = (state) => ({
-  orderBy: state.filtersReducer.orderBy
+  orderBy: state.filters.orderBy
 });
 
 export default connect(mapStateToProps)(FiltersContainer);

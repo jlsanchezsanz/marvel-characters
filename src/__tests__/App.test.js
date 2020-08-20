@@ -12,13 +12,13 @@ const setUpShallow = (initialState) => {
 
 describe('App', () => {
   it('should match snapshot', () => {
-    const charactersReducer = {
+    const characters = {
       characters: [],
       isLoading: false,
       error: {}
     };
 
-    const component = setUpShallow({ charactersReducer });
+    const component = setUpShallow({ characters });
     expect(component).toMatchSnapshot();
   });
 });

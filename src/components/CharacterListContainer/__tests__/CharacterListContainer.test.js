@@ -18,16 +18,16 @@ describe('CharacterListContainer', () => {
 
   it('should display loading message while loading', () => {
     component = setUpMount({
-      charactersReducer: { isLoading: true },
-      filtersReducer: { orderBy: 'name' }
+      characters: { isLoading: true },
+      filters: { orderBy: 'name' }
     });
     expect(component).toMatchSnapshot();
   });
 
   it('should display characters list', () => {
     component = setUpMount({
-      charactersReducer: { characters: [{}, {}] },
-      filtersReducer: { orderBy: 'name' }
+      characters: { characters: [{}, {}] },
+      filters: { orderBy: 'name' }
     });
     expect(component).toMatchSnapshot();
   });

@@ -22,11 +22,11 @@ function CharacterDetailsContainer({ character, dispatch }) {
 }
 
 function getCharacterFromDetails(state) {
-  return state.characterDetailsReducer.characterDetails;
+  return state.characterDetails.characterDetails;
 }
 
 function getCharacterFromList(state, id) {
-  return state.charactersReducer.characters.find(
+  return state.characters.characters.find(
     (character) => character.id.toString() === id
   );
 }
@@ -35,7 +35,7 @@ const mapStateToProps = (state, ownProps) => ({
   character:
     getCharacterFromDetails(state) ||
     getCharacterFromList(state, ownProps.match.params.id),
-  isLoading: state.characterDetailsReducer.isLoading
+  isLoading: state.characterDetails.isLoading
 });
 
 export default connect(mapStateToProps)(CharacterDetailsContainer);

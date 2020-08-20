@@ -16,14 +16,14 @@ const setUpMount = (initialState) => {
 
 describe('FiltersContainer', () => {
   it('should render component', () => {
-    const component = setUpMount({ filtersReducer: { orderBy: 'name' } });
+    const component = setUpMount({ filters: { orderBy: 'name' } });
     expect(component).toMatchSnapshot();
   });
 
   it('should update filters on orderBy change', () => {
     const name = 'orderBy';
     const value = '-name';
-    const component = setUpMount({ filtersReducer: {} });
+    const component = setUpMount({ filters: {} });
     const select = component.find('select');
 
     expect(store.dispatch).not.toHaveBeenCalled();
@@ -38,7 +38,7 @@ describe('FiltersContainer', () => {
   it('should update filters on nameStartsWith change', () => {
     const name = 'nameStartsWith';
     const value = 'spi';
-    const component = setUpMount({ filtersReducer: {} });
+    const component = setUpMount({ filters: {} });
     const input = component.find('input');
 
     expect(store.dispatch).not.toHaveBeenCalled();
@@ -53,7 +53,7 @@ describe('FiltersContainer', () => {
   it('should not update filters on nameStartsWith change if length < 3', () => {
     const name = 'nameStartsWith';
     const value = 'sp';
-    const component = setUpMount({ filtersReducer: {} });
+    const component = setUpMount({ filters: {} });
     const input = component.find('input');
 
     expect(store.dispatch).not.toHaveBeenCalled();

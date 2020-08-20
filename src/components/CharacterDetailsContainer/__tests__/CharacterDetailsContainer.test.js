@@ -33,8 +33,8 @@ describe('CharacterDetailsContainer', () => {
   it('should display loading message while no character', () => {
     component = setUpMount(
       {
-        charactersReducer: { characters: [] },
-        characterDetailsReducer: {
+        characters: { characters: [] },
+        characterDetails: {
           characterDetails: undefined,
           isLoading: true
         }
@@ -47,8 +47,8 @@ describe('CharacterDetailsContainer', () => {
   it('should display character details', () => {
     component = setUpMount(
       {
-        charactersReducer: { characters: [] },
-        characterDetailsReducer: { characterDetails: [{ id }] }
+        characters: { characters: [] },
+        characterDetails: { characterDetails: [{ id }] }
       },
       { params: { id: id.toString() } }
     );
@@ -58,8 +58,8 @@ describe('CharacterDetailsContainer', () => {
   it('should fetch character details with the id in the url', () => {
     component = setUpMount(
       {
-        charactersReducer: { characters: [] },
-        characterDetailsReducer: { characterDetails: undefined }
+        characters: { characters: [] },
+        characterDetails: { characterDetails: undefined }
       },
       { params: { id: id.toString() } }
     );
@@ -70,8 +70,8 @@ describe('CharacterDetailsContainer', () => {
   it('should not fetch character details if already in the store', () => {
     component = setUpMount(
       {
-        charactersReducer: { characters: [{ id }] },
-        characterDetailsReducer: { characterDetails: undefined }
+        characters: { characters: [{ id }] },
+        characterDetails: { characterDetails: undefined }
       },
       { params: { id: id.toString() } }
     );
