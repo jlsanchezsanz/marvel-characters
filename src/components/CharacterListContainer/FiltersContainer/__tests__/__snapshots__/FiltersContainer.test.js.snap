@@ -27,7 +27,9 @@ exports[`FiltersContainer should render component 1`] = `
       }
     }
   >
-    <form>
+    <form
+      className="filters"
+    >
       <div
         className="input-group"
       >
@@ -52,7 +54,7 @@ exports[`FiltersContainer should render component 1`] = `
         </span>
       </div>
       <select
-        className="form-control"
+        className="form-control filters__order-by"
         name="orderBy"
         onChange={[Function]}
         value="name"

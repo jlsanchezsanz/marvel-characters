@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import './App.css';
 import CharacterListContainer from './components/CharacterListContainer';
 import CharacterDetailsContainer from './components/CharacterDetailsContainer';
+
+import './App.scss';
 
 export default function App() {
   return (

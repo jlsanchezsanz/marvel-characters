@@ -4,17 +4,19 @@ import { Link } from 'react-router-dom';
 
 import CharacterListItem from './CharacterListItem';
 
+import './CharacterList.scss';
+
 export default function CharacterList({ characters }) {
   return (
-    <div>
-      <ul>
-        {characters.map((character) => (
-          <Link to={`/${character.id}`} key={`link-${character.id}`}>
-            <CharacterListItem character={character} key={character.id} />
+    <ul className='character-list'>
+      {characters.map((character) => (
+        <li key={character.id} className='character-list__item'>
+          <Link to={`/${character.id}`}>
+            <CharacterListItem character={character} />
           </Link>
-        ))}
-      </ul>
-    </div>
+        </li>
+      ))}
+    </ul>
   );
 }
 

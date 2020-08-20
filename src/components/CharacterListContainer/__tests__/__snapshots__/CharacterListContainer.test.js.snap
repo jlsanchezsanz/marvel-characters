@@ -33,7 +33,9 @@ exports[`CharacterListContainer should display characters list 1`] = `
       }
     }
   >
-    <div>
+    <div
+      className="container"
+    >
       <Component />
       <Component
         characters={
@@ -76,7 +78,9 @@ exports[`CharacterListContainer should display loading message while loading 1`]
       }
     }
   >
-    <div>
+    <div
+      className="container"
+    >
       <Component />
       <p>
         Loading...

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { updateFilters } from '../../../state/actions/filters.actions';
 
+import './FiltersContainer.scss';
+
 function FiltersContainer({ dispatch, orderBy }) {
   function handleNameStartsWithChange(event) {
     if (event.target.value.length >= 3) {
@@ -16,7 +18,7 @@ function FiltersContainer({ dispatch, orderBy }) {
   }
 
   return (
-    <form>
+    <form className='filters'>
       <div className='input-group'>
         <input
           className='form-control border-right-0 border'
@@ -34,7 +36,7 @@ function FiltersContainer({ dispatch, orderBy }) {
       </div>
       <select
         name='orderBy'
-        className='form-control'
+        className='form-control filters__order-by'
         onChange={handleFiltersChange}
         value={orderBy}
       >

@@ -1,0 +1,9 @@
+.filters {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  padding: 10px;
+
+  &__order-by {
+    grid-column: 3 / 3;
+  }
+}

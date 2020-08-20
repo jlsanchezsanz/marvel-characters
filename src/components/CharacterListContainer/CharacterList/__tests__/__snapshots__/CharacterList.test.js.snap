@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CharacterList should display characters list 1`] = `
-<div>
-  <ul>
+<ul
+  className="character-list"
+>
+  <li
+    className="character-list__item"
+    key="1"
+  >
     <Link
-      key="link-1"
       to="/1"
     >
       <CharacterListItem
@@ -14,11 +18,14 @@ exports[`CharacterList should display characters list 1`] = `
             "name": "Ironman",
           }
         }
-        key="1"
       />
     </Link>
+  </li>
+  <li
+    className="character-list__item"
+    key="2"
+  >
     <Link
-      key="link-2"
       to="/2"
     >
       <CharacterListItem
@@ -28,11 +35,14 @@ exports[`CharacterList should display characters list 1`] = `
             "name": "Thor",
           }
         }
-        key="2"
       />
     </Link>
+  </li>
+  <li
+    className="character-list__item"
+    key="3"
+  >
     <Link
-      key="link-3"
       to="/3"
     >
       <CharacterListItem
@@ -42,9 +52,8 @@ exports[`CharacterList should display characters list 1`] = `
             "name": "Black Widow",
           }
         }
-        key="3"
       />
     </Link>
-  </ul>
-</div>
+  </li>
+</ul>
 `;

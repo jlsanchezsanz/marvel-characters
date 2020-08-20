@@ -17,7 +17,7 @@ function CharacterListContainer({
   }, [dispatch, orderBy, nameStartsWith]);
 
   return (
-    <div>
+    <div className='container'>
       <FiltersContainer />
       {isLoading ? (
         <p>Loading...</p>
