@@ -30,13 +30,22 @@ export function fetchCharactersError(error) {
   };
 }
 
-export const fetchCharacters = (orderBy, nameStartsWith) => (dispatch) => {
+function generateUrl(orderBy, nameStartsWith, page, limit) {
+  return (
+    `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}` +
+    `?apikey=${API_KEY}` +
+    `&orderBy=${orderBy}` +
+    `&limit=${limit}` +
+    `&offset=${page * limit - limit}` +
+    `${nameStartsWith && `&nameStartsWith=${nameStartsWith}`}`
+  );
+}
+
+export const fetchCharacters = (orderBy, nameStartsWith, page, limit) => (
+  dispatch
+) => {
   dispatch(fetchCharactersStart());
-  return fetch(
-    `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=${orderBy}${
-      nameStartsWith && `&nameStartsWith=${nameStartsWith}`
-    }`
-  )
+  return fetch(generateUrl(orderBy, nameStartsWith, page, limit))
     .then((response) => response.json())
     .then(({ data }) => {
       dispatch(fetchCharactersSuccess(data));

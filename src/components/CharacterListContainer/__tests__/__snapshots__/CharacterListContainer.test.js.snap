@@ -21,7 +21,17 @@ exports[`CharacterListContainer should display characters list 1`] = `
       ]
     }
     dispatch={[Function]}
-    orderBy="name"
+    filters={
+      Object {
+        "orderBy": "name",
+      }
+    }
+    pagination={
+      Object {
+        "page": 1,
+        "pages": 2,
+      }
+    }
     store={
       Object {
         "clearActions": [Function],
@@ -38,12 +48,22 @@ exports[`CharacterListContainer should display characters list 1`] = `
     >
       <Component />
       <Component
+        onSelectPage={[Function]}
+        page={1}
+        pages={2}
+      />
+      <Component
         characters={
           Array [
             Object {},
             Object {},
           ]
         }
+      />
+      <Component
+        onSelectPage={[Function]}
+        page={1}
+        pages={2}
       />
     </div>
   </CharacterListContainer>
@@ -65,8 +85,18 @@ exports[`CharacterListContainer should display loading message while loading 1`]
 >
   <CharacterListContainer
     dispatch={[Function]}
+    filters={
+      Object {
+        "orderBy": "name",
+      }
+    }
     isLoading={true}
-    orderBy="name"
+    pagination={
+      Object {
+        "page": 1,
+        "pages": 2,
+      }
+    }
     store={
       Object {
         "clearActions": [Function],
@@ -82,9 +112,19 @@ exports[`CharacterListContainer should display loading message while loading 1`]
       className="container"
     >
       <Component />
+      <Component
+        onSelectPage={[Function]}
+        page={1}
+        pages={2}
+      />
       <p>
         Loading...
       </p>
+      <Component
+        onSelectPage={[Function]}
+        page={1}
+        pages={2}
+      />
     </div>
   </CharacterListContainer>
 </Connect(CharacterListContainer)>

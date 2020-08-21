@@ -6,6 +6,7 @@ import { mockStore } from '../../../state/__mocks__/store';
 
 jest.mock('../CharacterList', () => () => <></>);
 jest.mock('../FiltersContainer', () => () => <></>);
+jest.mock('../CharactersPagination', () => () => <></>);
 
 const setUpMount = (initialState) => {
   const store = mockStore(initialState);
@@ -19,7 +20,8 @@ describe('CharacterListContainer', () => {
   it('should display loading message while loading', () => {
     component = setUpMount({
       characters: { isLoading: true },
-      filters: { orderBy: 'name' }
+      filters: { orderBy: 'name' },
+      pagination: { page: 1, pages: 2 }
     });
     expect(component).toMatchSnapshot();
   });
@@ -27,7 +29,8 @@ describe('CharacterListContainer', () => {
   it('should display characters list', () => {
     component = setUpMount({
       characters: { characters: [{}, {}] },
-      filters: { orderBy: 'name' }
+      filters: { orderBy: 'name' },
+      pagination: { page: 1, pages: 2 }
     });
     expect(component).toMatchSnapshot();
   });

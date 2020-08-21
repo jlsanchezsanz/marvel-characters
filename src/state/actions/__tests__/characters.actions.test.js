@@ -43,7 +43,7 @@ describe('Characters Actions', () => {
     type: FETCH_CHARACTERS_ERROR,
     error
   };
-  const endpoint = `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name&nameStartsWith=spi`;
+  const endpoint = `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}?apikey=${API_KEY}&orderBy=name&limit=20&offset=40&nameStartsWith=spi`;
 
   afterEach(() => {
     fetchMock.restore();
@@ -69,7 +69,7 @@ describe('Characters Actions', () => {
       updatePaginationAction
     ];
     fetchMock.getOnce(endpoint, { body: charactersMock });
-    return store.dispatch(fetchCharacters('name', 'spi')).then(() => {
+    return store.dispatch(fetchCharacters('name', 'spi', 3, 20)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -78,7 +78,7 @@ describe('Characters Actions', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, errorAction];
     fetchMock.getOnce(endpoint, Promise.reject(error));
-    return store.dispatch(fetchCharacters('name', 'spi')).then(() => {
+    return store.dispatch(fetchCharacters('name', 'spi', 3, 20)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });

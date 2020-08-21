@@ -3,27 +3,46 @@ import { connect } from 'react-redux';
 
 import CharacterList from './CharacterList';
 import FiltersContainer from './FiltersContainer';
+import CharactersPagination from './CharactersPagination';
 import { fetchCharacters } from '../../state/actions/characters.actions';
+import { selectPage } from '../../state/actions/pagination.actions';
 
 function CharacterListContainer({
   characters,
   isLoading,
   dispatch,
-  orderBy,
-  nameStartsWith
+  filters,
+  pagination
 }) {
+  const { orderBy, nameStartsWith } = filters;
+  const { page, pages, limit } = pagination;
+
   useEffect(() => {
-    dispatch(fetchCharacters(orderBy, nameStartsWith));
-  }, [dispatch, orderBy, nameStartsWith]);
+    dispatch(fetchCharacters(orderBy, nameStartsWith, page, limit));
+  }, [dispatch, orderBy, nameStartsWith, page, limit]);
+
+  function handleSelectPage(page) {
+    dispatch(selectPage(page));
+  }
 
   return (
     <div className='container'>
       <FiltersContainer />
+      <CharactersPagination
+        page={page}
+        pages={pages}
+        onSelectPage={handleSelectPage}
+      />
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <CharacterList characters={characters} />
       )}
+      <CharactersPagination
+        page={page}
+        pages={pages}
+        onSelectPage={handleSelectPage}
+      />
     </div>
   );
 }
@@ -31,8 +50,8 @@ function CharacterListContainer({
 const mapStateToProps = (state) => ({
   characters: state.characters.characters,
   isLoading: state.characters.isLoading,
-  orderBy: state.filters.orderBy,
-  nameStartsWith: state.filters.nameStartsWith
+  filters: state.filters,
+  pagination: state.pagination
 });
 
 export default connect(mapStateToProps)(CharacterListContainer);

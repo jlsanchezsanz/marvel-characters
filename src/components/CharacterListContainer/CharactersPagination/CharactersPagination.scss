@@ -1,0 +1,9 @@
+.pagination {
+  margin: 0;
+  padding: 10px;
+
+  &__wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
