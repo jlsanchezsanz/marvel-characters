@@ -12,7 +12,8 @@ import {
 import {
   FETCH_CHARACTERS_START,
   FETCH_CHARACTERS_SUCCESS,
-  FETCH_CHARACTERS_ERROR
+  FETCH_CHARACTERS_ERROR,
+  UPDATE_PAGINATION
 } from '../types';
 import { initialState } from '../../reducers/characters.reducer';
 import {
@@ -30,7 +31,12 @@ describe('Characters Actions', () => {
   };
   const successAction = {
     type: FETCH_CHARACTERS_SUCCESS,
-    payload: charactersMock
+    payload: charactersMock.data
+  };
+  const { total } = charactersMock.data;
+  const updatePaginationAction = {
+    type: UPDATE_PAGINATION,
+    payload: total
   };
   const error = { message: 'Error' };
   const errorAction = {
@@ -48,21 +54,21 @@ describe('Characters Actions', () => {
   });
 
   it('should create an action to success fetching characters', () => {
-    expect(fetchCharactersSuccess(charactersMock)).toEqual(successAction);
+    expect(fetchCharactersSuccess(charactersMock.data)).toEqual(successAction);
   });
 
   it('should create an action to error fetching characters', () => {
     expect(fetchCharactersError(error)).toEqual(errorAction);
   });
 
-  it('should dispatch fetch success action when fetching done', () => {
+  it('should dispatch fetch success and update pagination actions when fetching done', () => {
     const store = mockStore(initialState);
-    const expectedActions = [startAction, successAction];
-    fetchMock.getOnce(endpoint, {
-      body: {
-        data: charactersMock
-      }
-    });
+    const expectedActions = [
+      startAction,
+      successAction,
+      updatePaginationAction
+    ];
+    fetchMock.getOnce(endpoint, { body: charactersMock });
     return store.dispatch(fetchCharacters('name', 'spi')).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });

@@ -19,7 +19,6 @@ export function paginationReducer(state = initialState, action) {
       return {
         ...state,
         pages: generatePages(state.limit, total),
-        page: 1,
         total
       };
     case SELECT_PAGE:

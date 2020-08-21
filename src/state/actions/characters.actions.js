@@ -3,6 +3,7 @@ import {
   FETCH_CHARACTERS_SUCCESS,
   FETCH_CHARACTERS_ERROR
 } from './types';
+import { updatePagination } from './pagination.actions';
 import {
   MARVEL_API_URL,
   CHARACTERS_ENDPOINT,
@@ -37,6 +38,9 @@ export const fetchCharacters = (orderBy, nameStartsWith) => (dispatch) => {
     }`
   )
     .then((response) => response.json())
-    .then(({ data }) => dispatch(fetchCharactersSuccess(data)))
+    .then(({ data }) => {
+      dispatch(fetchCharactersSuccess(data));
+      dispatch(updatePagination(data.total));
+    })
     .catch((error) => dispatch(fetchCharactersError(error)));
 };

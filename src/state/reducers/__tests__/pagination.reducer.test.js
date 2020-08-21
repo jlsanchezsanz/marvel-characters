@@ -11,9 +11,9 @@ describe('paginationReducer', () => {
     expect(state).toEqual(initialState);
   });
 
-  it('should update pagination info and select page 1', () => {
+  it('should update pagination info', () => {
     const state = paginationReducer(
-      { ...initialState, page: 3, limit: 3 },
+      { ...initialState, limit: 3 },
       {
         type: UPDATE_PAGINATION,
         payload: 10
@@ -22,7 +22,6 @@ describe('paginationReducer', () => {
     expect(state).toEqual({
       ...initialState,
       pages: 4,
-      page: 1,
       total: 10,
       limit: 3
     });
