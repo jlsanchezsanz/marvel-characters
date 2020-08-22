@@ -2,21 +2,48 @@
 
 exports[`CharacterDetails should display characters list 1`] = `
 <div
-  className="card"
+  className="card mb-3"
 >
-  <img
-    alt="3-D Man"
-    className="card-img-top"
-    src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
-  />
   <div
-    className="card-body"
+    className="row no-gutters"
   >
-    <h5
-      className="card-title"
+    <div
+      className="col-md-4"
     >
-      3-D Man
-    </h5>
+      <img
+        alt="3-D Man"
+        className="card-img"
+        src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+      />
+    </div>
+    <div
+      className="col-md-8"
+    >
+      <div
+        className="card-body"
+      >
+        <h5
+          className="card-title"
+        >
+          3-D Man
+        </h5>
+        <p
+          className="card-text"
+        >
+          No description available.
+        </p>
+        <p
+          className="card-text"
+        >
+          <small
+            className="text-muted"
+          >
+            Last updated 
+            4/29/2014, 8:18:17 PM
+          </small>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 `;

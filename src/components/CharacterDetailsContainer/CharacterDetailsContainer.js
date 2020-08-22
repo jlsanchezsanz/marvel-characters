@@ -1,23 +1,29 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 import { fetchCharacterDetails } from '../../state/actions/character-details.actions';
 import CharacterDetails from './CharacterDetails';
+
+import './CharacterDetailsContainer.scss';
 
 function CharacterDetailsContainer({ character, dispatch }) {
   let { id } = useParams();
 
   useEffect(() => {
-    if (!character) {
-      dispatch(fetchCharacterDetails(id));
-    }
-  }, [dispatch, id, character]);
+    dispatch(fetchCharacterDetails(id));
+  }, [dispatch, id]);
 
   return !character ? (
     <p>Loading...</p>
   ) : (
-    <CharacterDetails character={character} />
+    <div className='character-details-container__wrapper'>
+      <Link to='/' className='character-details-container__back-button'>
+        <i className='fa fa-arrow-left'></i>{' '}
+        All characters
+      </Link>
+      <CharacterDetails character={character} />
+    </div>
   );
 }
 

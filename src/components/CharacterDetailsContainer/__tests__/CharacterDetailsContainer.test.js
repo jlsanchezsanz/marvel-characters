@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import CharacterDetailsContainer from '../CharacterDetailsContainer';
 import { mockStore } from '../../../state/__mocks__/store';
@@ -21,7 +22,9 @@ const setUpMount = (initialState, match) => {
   store = mockStore(initialState);
   store.dispatch = jest.fn();
   const component = mount(
-    <CharacterDetailsContainer store={store} match={match} />
+    <Router>
+      <CharacterDetailsContainer store={store} match={match} />
+    </Router>
   );
   return component;
 };
@@ -41,7 +44,8 @@ describe('CharacterDetailsContainer', () => {
       },
       { params: {} }
     );
-    expect(component).toMatchSnapshot();
+    const loader = component.find('p');
+    expect(loader).toBeDefined();
   });
 
   it('should display character details', () => {
@@ -52,7 +56,8 @@ describe('CharacterDetailsContainer', () => {
       },
       { params: { id: id.toString() } }
     );
-    expect(component).toMatchSnapshot();
+    const characterDetails = component.find('CharacterDetails');
+    expect(characterDetails).toBeDefined();
   });
 
   it('should fetch character details with the id in the url', () => {
@@ -65,16 +70,5 @@ describe('CharacterDetailsContainer', () => {
     );
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(fetchCharacterDetails(id));
-  });
-
-  it('should not fetch character details if already in the store', () => {
-    component = setUpMount(
-      {
-        characters: { characters: [{ id }] },
-        characterDetails: { characterDetails: undefined }
-      },
-      { params: { id: id.toString() } }
-    );
-    expect(store.dispatch).not.toHaveBeenCalled();
   });
 });

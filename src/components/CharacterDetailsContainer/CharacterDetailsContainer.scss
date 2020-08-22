@@ -1,0 +1,11 @@
+.character-details-container {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__back-button {
+    align-self: flex-start;
+    margin: 20px 0;
+  }
+}
