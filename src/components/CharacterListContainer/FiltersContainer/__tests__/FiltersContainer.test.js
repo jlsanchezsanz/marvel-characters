@@ -50,7 +50,22 @@ describe('FiltersContainer', () => {
     );
   });
 
-  it('should not update filters on nameStartsWith change if length < 3', () => {
+  it('should update filters on nameStartsWith change if length === 0', () => {
+    const name = 'nameStartsWith';
+    const value = '';
+    const component = setUpMount({ filters: {} });
+    const input = component.find('input');
+
+    expect(store.dispatch).not.toHaveBeenCalled();
+    input.simulate('change', { target: { value, name } });
+
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledWith(
+      updateFilters({ [name]: value })
+    );
+  });
+
+  it('should not update filters on nameStartsWith change if 3 > length > 0', () => {
     const name = 'nameStartsWith';
     const value = 'sp';
     const component = setUpMount({ filters: {} });

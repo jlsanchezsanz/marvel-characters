@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import CharacterList from './CharacterList';
 import FiltersContainer from './FiltersContainer';
-import LimitSelector from '../LimitSelector';
+import LimitSelector from './LimitSelector';
 import CharactersPagination from './CharactersPagination';
 import { fetchCharacters } from '../../state/actions/characters.actions';
 import {

@@ -7,7 +7,8 @@ import './FiltersContainer.scss';
 
 function FiltersContainer({ dispatch, orderBy }) {
   function handleNameStartsWithChange(event) {
-    if (event.target.value.length >= 3) {
+    const { length } = event.target.value;
+    if (length === 0 || length >= 3) {
       handleFiltersChange(event);
     }
   }
