@@ -37,6 +37,9 @@ exports[`App should match snapshot 1`] = `
         />
       </Switch>
     </main>
+    <footer>
+      <Footer />
+    </footer>
   </div>
 </BrowserRouter>
 `;

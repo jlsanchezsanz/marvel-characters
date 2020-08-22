@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CharacterListContainer from './components/CharacterListContainer';
 import CharacterDetailsContainer from './components/CharacterDetailsContainer';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import './App.scss';
 
@@ -20,6 +21,9 @@ export default function App() {
             <Route path='/:id' component={CharacterDetailsContainer} />
           </Switch>
         </main>
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </Router>
   );
