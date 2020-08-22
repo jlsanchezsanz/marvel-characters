@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should match snapshot 1`] = `
+<nav
+  class="navbar navbar-light bg-light header"
+>
+  <a
+    class="navbar-brand"
+    href="#"
+  >
+    <img
+      alt="Marvel"
+      height="40"
+      src={
+        Object {
+          "ReactComponent": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "render": [Function],
+          },
+          "__esModule": true,
+          "default": "marvel_logo.svg",
+        }
+      }
+    />
+  </a>
+</nav>
+`;

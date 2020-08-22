@@ -5,33 +5,38 @@ exports[`App should match snapshot 1`] = `
   <div
     className="App"
   >
-    <Switch>
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(CharacterListContainer)",
-            "type": [Function],
+    <header>
+      <Header />
+    </header>
+    <main>
+      <Switch>
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(CharacterListContainer)",
+              "type": [Function],
+            }
           }
-        }
-        exact={true}
-        path="/"
-      />
-      <Route
-        component={
-          Object {
-            "$$typeof": Symbol(react.memo),
-            "WrappedComponent": [Function],
-            "compare": null,
-            "displayName": "Connect(CharacterDetailsContainer)",
-            "type": [Function],
+          exact={true}
+          path="/"
+        />
+        <Route
+          component={
+            Object {
+              "$$typeof": Symbol(react.memo),
+              "WrappedComponent": [Function],
+              "compare": null,
+              "displayName": "Connect(CharacterDetailsContainer)",
+              "type": [Function],
+            }
           }
-        }
-        path="/:id"
-      />
-    </Switch>
+          path="/:id"
+        />
+      </Switch>
+    </main>
   </div>
 </BrowserRouter>
 `;
