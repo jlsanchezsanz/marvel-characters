@@ -5,6 +5,7 @@ import CharacterList from './CharacterList';
 import FiltersContainer from './FiltersContainer';
 import LimitSelector from './LimitSelector';
 import CharactersPagination from './CharactersPagination';
+import Spinner from '../Spinner';
 import { fetchCharacters } from '../../state/actions/characters.actions';
 import {
   selectPage,
@@ -43,11 +44,7 @@ function CharacterListContainer({
         pages={pages}
         onSelectPage={handleSelectPage}
       />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <CharacterList characters={characters} />
-      )}
+      {isLoading ? <Spinner /> : <CharacterList characters={characters} />}
       <div className='characters-list__row'>
         <LimitSelector limit={limit} onSelectLimit={handleSelectLimit} />
         <CharactersPagination

@@ -11,11 +11,11 @@ import './App.scss';
 export default function App() {
   return (
     <Router>
-      <div className='App'>
+      <div className='app-container'>
         <header>
           <Header />
         </header>
-        <main>
+        <main className='main'>
           <Switch>
             <Route exact path='/' component={CharacterListContainer} />
             <Route path='/:id' component={CharacterDetailsContainer} />
