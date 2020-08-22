@@ -1,7 +1,7 @@
 import { SELECT_LIMIT, SELECT_PAGE, UPDATE_PAGINATION } from '../actions/types';
 
 export const initialState = {
-  pages: 0,
+  pages: 1,
   page: 1,
   limit: 20,
   total: 0
@@ -24,7 +24,7 @@ export function paginationReducer(state = initialState, action) {
     case SELECT_PAGE:
       return { ...state, page: action.payload };
     case SELECT_LIMIT:
-      return { ...state, limit: action.payload };
+      return { ...initialState, limit: action.payload };
     default:
       return state;
   }

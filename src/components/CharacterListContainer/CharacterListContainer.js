@@ -3,9 +3,15 @@ import { connect } from 'react-redux';
 
 import CharacterList from './CharacterList';
 import FiltersContainer from './FiltersContainer';
+import LimitSelector from '../LimitSelector';
 import CharactersPagination from './CharactersPagination';
 import { fetchCharacters } from '../../state/actions/characters.actions';
-import { selectPage } from '../../state/actions/pagination.actions';
+import {
+  selectPage,
+  selectLimit
+} from '../../state/actions/pagination.actions';
+
+import './CharacterListContainer.scss';
 
 function CharacterListContainer({
   characters,
@@ -25,6 +31,10 @@ function CharacterListContainer({
     dispatch(selectPage(page));
   }
 
+  function handleSelectLimit(limit) {
+    dispatch(selectLimit(limit));
+  }
+
   return (
     <div className='container'>
       <FiltersContainer />
@@ -38,11 +48,14 @@ function CharacterListContainer({
       ) : (
         <CharacterList characters={characters} />
       )}
-      <CharactersPagination
-        page={page}
-        pages={pages}
-        onSelectPage={handleSelectPage}
-      />
+      <div className='characters-list__row'>
+        <LimitSelector limit={limit} onSelectLimit={handleSelectLimit} />
+        <CharactersPagination
+          page={page}
+          pages={pages}
+          onSelectPage={handleSelectPage}
+        />
+      </div>
     </div>
   );
 }

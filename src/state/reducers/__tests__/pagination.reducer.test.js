@@ -36,12 +36,15 @@ describe('paginationReducer', () => {
     expect(state).toEqual({ ...initialState, page: 3 });
   });
 
-  it('should update limit', () => {
-    const payload = 20;
-    const state = paginationReducer(initialState, {
-      type: SELECT_LIMIT,
-      payload
-    });
-    expect(state).toEqual({ ...initialState, limit: 20 });
+  it('should reset to initial state and update limit', () => {
+    const payload = 50;
+    const state = paginationReducer(
+      { ...initialState, page: 2, pages: 10 },
+      {
+        type: SELECT_LIMIT,
+        payload
+      }
+    );
+    expect(state).toEqual({ ...initialState, limit: 50 });
   });
 });

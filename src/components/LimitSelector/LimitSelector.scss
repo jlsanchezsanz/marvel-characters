@@ -1,0 +1,12 @@
+.limit-selector {
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    padding: 10px;
+  }
+
+  &__label {
+    margin: 0 10px;
+    white-space: nowrap;
+  }
+}
