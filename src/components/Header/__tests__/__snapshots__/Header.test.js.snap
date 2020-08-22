@@ -2,11 +2,10 @@
 
 exports[`Header should match snapshot 1`] = `
 <nav
-  class="navbar navbar-light bg-light header"
+  className="navbar navbar-light bg-light header"
 >
-  <a
-    class="navbar-brand"
-    href="#"
+  <Link
+    to="/"
   >
     <img
       alt="Marvel"
@@ -22,6 +21,6 @@ exports[`Header should match snapshot 1`] = `
         }
       }
     />
-  </a>
+  </Link>
 </nav>
 `;
