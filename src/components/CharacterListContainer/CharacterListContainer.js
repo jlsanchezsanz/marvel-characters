@@ -38,13 +38,21 @@ function CharacterListContainer({
 
   return (
     <div className='container'>
+      <h1>Marvel characters list</h1>
       <FiltersContainer />
       <CharactersPagination
         page={page}
         pages={pages}
         onSelectPage={handleSelectPage}
       />
-      {isLoading ? <Spinner /> : <CharacterList characters={characters} />}
+      {isLoading && <Spinner />}
+      {!isLoading && nameStartsWith && !characters.length ? (
+        <p>
+          <em>No results match your criteria.</em>
+        </p>
+      ) : (
+        <CharacterList characters={characters} />
+      )}
       <div className='characters-list__row'>
         <LimitSelector limit={limit} onSelectLimit={handleSelectLimit} />
         <CharactersPagination

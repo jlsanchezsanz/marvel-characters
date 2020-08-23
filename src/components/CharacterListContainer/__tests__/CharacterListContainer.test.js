@@ -42,6 +42,16 @@ describe('CharacterListContainer', () => {
     expect(characterList).toBeDefined();
   });
 
+  it('should display no results found message', () => {
+    component = setUpMount({
+      characters: { characters: [], isLoading: false },
+      filters: { nameStartsWith: 'asd' },
+      pagination: { page: 1, pages: 2, limit: 20 }
+    });
+    const text = component.find('p').at(0).find('em').text();
+    expect(text).toBe('No results match your criteria.');
+  });
+
   it('should dispatch select page action on page change', () => {
     component = setUpMount({
       characters: { characters: [{}, {}] },
