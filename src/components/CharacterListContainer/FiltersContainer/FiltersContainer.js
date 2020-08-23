@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { updateFilters } from '../../../state/actions/filters.actions';
+import OrderSelector from './OrderSelector/OrderSelector';
 
 import './FiltersContainer.scss';
 
@@ -35,15 +36,9 @@ function FiltersContainer({ dispatch, orderBy }) {
           </div>
         </span>
       </div>
-      <select
-        name='orderBy'
-        className='form-control filters__order-by'
-        onChange={handleFiltersChange}
-        value={orderBy}
-      >
-        <option value='name'>A-Z</option>
-        <option value='-name'>Z-A</option>
-      </select>
+      <div className='filters__order-by'>
+        <OrderSelector value={orderBy} onChange={handleFiltersChange} />
+      </div>
     </form>
   );
 }

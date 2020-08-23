@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderSelector should render component 1`] = `
+<OrderSelector
+  onChange={[MockFunction]}
+  value="name"
+>
+  <select
+    className="form-control"
+    name="orderBy"
+    onChange={[MockFunction]}
+    value="name"
+  >
+    <option
+      value="name"
+    >
+      Name Asc
+    </option>
+    <option
+      value="-name"
+    >
+      Name Desc
+    </option>
+    <option
+      value="modified"
+    >
+      Modified Asc
+    </option>
+    <option
+      value="-modified"
+    >
+      Modified Desc
+    </option>
+  </select>
+</OrderSelector>
+`;
