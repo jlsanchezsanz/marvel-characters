@@ -37,7 +37,7 @@ function generateUrl(orderBy, nameStartsWith, page, limit) {
     `&orderBy=${orderBy}` +
     `&limit=${limit}` +
     `&offset=${page * limit - limit}` +
-    `${nameStartsWith && `&nameStartsWith=${nameStartsWith}`}`
+    `${nameStartsWith &&  `&nameStartsWith=${nameStartsWith}`}`
   );
 }
 
@@ -47,9 +47,12 @@ export const fetchCharacters = (orderBy, nameStartsWith, page, limit) => (
   dispatch(fetchCharactersStart());
   return fetch(generateUrl(orderBy, nameStartsWith, page, limit))
     .then((response) => response.json())
-    .then(({ data }) => {
+    .then(({ data, code, status }) => {
+      if (code >= 400 && code < 500) {
+        throw status;
+      }
       dispatch(fetchCharactersSuccess(data));
       dispatch(updatePagination(data.total));
     })
-    .catch((error) => dispatch(fetchCharactersError(error)));
+    .catch((error) => dispatch(fetchCharactersError({ message: error })));
 };

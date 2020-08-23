@@ -29,6 +29,7 @@ describe('characterDetailsReducer', () => {
     });
     expect(state).toEqual({
       ...initialState,
+      isLoading: false,
       characterDetails: charactersMock.data.results[0]
     });
   });
@@ -39,6 +40,6 @@ describe('characterDetailsReducer', () => {
       type: FETCH_CHARACTER_DETAILS_ERROR,
       error
     });
-    expect(state).toEqual({ ...initialState, error });
+    expect(state).toEqual({ ...initialState, error, isLoading: false });
   });
 });

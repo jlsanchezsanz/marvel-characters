@@ -33,7 +33,7 @@ describe('Character Details Actions', () => {
     type: FETCH_CHARACTER_DETAILS_SUCCESS,
     payload: charactersMock
   };
-  const error = { message: 'Error' };
+  const error = { message: 'Some error message' };
   const errorAction = {
     type: FETCH_CHARACTER_DETAILS_ERROR,
     error
@@ -72,7 +72,21 @@ describe('Character Details Actions', () => {
   it('should dispatch fetch error action when fetching failed', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, errorAction];
-    fetchMock.getOnce(endpoint, Promise.reject(error));
+    fetchMock.getOnce(endpoint, Promise.reject(error.message));
+    return store.dispatch(fetchCharacterDetails(id)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch fetch error action when 400 <= status < 500 ', () => {
+    const store = mockStore(initialState);
+    const expectedActions = [startAction, errorAction];
+    fetchMock.getOnce(endpoint, {
+      body: {
+        code: 400,
+        status: error.message
+      }
+    });
     return store.dispatch(fetchCharacterDetails(id)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });

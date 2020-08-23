@@ -35,6 +35,11 @@ export const fetchCharacterDetails = (id) => (dispatch) => {
     `${MARVEL_API_URL}${CHARACTERS_ENDPOINT}/${id}?apikey=${API_KEY}`
   )
     .then((response) => response.json())
-    .then(({ data }) => dispatch(fetchCharacterDetailsSuccess(data)))
-    .catch((error) => dispatch(fetchCharacterDetailsError(error)));
+    .then(({ data, code, status }) => {
+      if (code >= 400 && code < 500) {
+        throw status;
+      }
+      dispatch(fetchCharacterDetailsSuccess(data));
+    })
+    .catch((error) => dispatch(fetchCharacterDetailsError({ message: error })));
 };

@@ -52,6 +52,20 @@ describe('CharacterListContainer', () => {
     expect(text).toBe('No results match your criteria.');
   });
 
+  it('should display error message', () => {
+    component = setUpMount({
+      characters: {
+        characters: [],
+        isLoading: false,
+        error: { message: 'Some error message' }
+      },
+      filters: {},
+      pagination: { page: 1, pages: 2, limit: 20 }
+    });
+    const error = component.find('Error');
+    expect(error).toMatchSnapshot();
+  });
+
   it('should dispatch select page action on page change', () => {
     component = setUpMount({
       characters: { characters: [{}, {}] },

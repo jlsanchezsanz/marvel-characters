@@ -71,4 +71,20 @@ describe('CharacterDetailsContainer', () => {
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(fetchCharacterDetails(id));
   });
+
+  it('should display error message', () => {
+    component = setUpMount(
+      {
+        characters: { characters: [] },
+        characterDetails: {
+          characterDetails: undefined,
+          isLoading: false,
+          error: { message: 'Some error message' }
+        }
+      },
+      { params: {} }
+    );
+    const error = component.find('Error');
+    expect(error).toMatchSnapshot();
+  });
 });

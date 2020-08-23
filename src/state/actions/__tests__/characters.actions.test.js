@@ -38,7 +38,7 @@ describe('Characters Actions', () => {
     type: UPDATE_PAGINATION,
     payload: total
   };
-  const error = { message: 'Error' };
+  const error = { message: 'Some error message' };
   const errorAction = {
     type: FETCH_CHARACTERS_ERROR,
     error
@@ -77,7 +77,21 @@ describe('Characters Actions', () => {
   it('should dispatch fetch error action when fetching failed', () => {
     const store = mockStore(initialState);
     const expectedActions = [startAction, errorAction];
-    fetchMock.getOnce(endpoint, Promise.reject(error));
+    fetchMock.getOnce(endpoint, Promise.reject(error.message));
+    return store.dispatch(fetchCharacters('name', 'spi', 3, 20)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch fetch error action when 400 <= status < 500 ', () => {
+    const store = mockStore(initialState);
+    const expectedActions = [startAction, errorAction];
+    fetchMock.getOnce(endpoint, {
+      body: {
+        code: 400,
+        status: error.message
+      }
+    });
     return store.dispatch(fetchCharacters('name', 'spi', 3, 20)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });

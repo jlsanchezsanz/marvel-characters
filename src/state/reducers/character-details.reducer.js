@@ -5,7 +5,7 @@ import {
 } from '../actions/types';
 
 export const initialState = {
-  isLoading: false,
+  isLoading: true,
   characterDetails: undefined,
   error: undefined
 };
@@ -13,9 +13,18 @@ export const initialState = {
 export function characterDetailsReducer(state = initialState, action) {
   switch (action.type) {
     case FETCH_CHARACTER_DETAILS_START:
-      return { ...state, isLoading: true };
+      return {
+        ...state,
+        isLoading: true,
+        error: undefined,
+        characterDetails: undefined
+      };
     case FETCH_CHARACTER_DETAILS_SUCCESS:
-      return { ...state, characterDetails: action.payload.results[0], isLoading: false };
+      return {
+        ...state,
+        characterDetails: action.payload.results[0],
+        isLoading: false
+      };
     case FETCH_CHARACTER_DETAILS_ERROR:
       return { ...state, error: action.error, isLoading: false };
     default:

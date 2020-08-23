@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterListContainer should display error message 1`] = `
+<Error
+  message="Some error message"
+>
+  <div
+    className="alert alert-danger"
+    role="alert"
+  >
+    Some error message
+  </div>
+</Error>
+`;

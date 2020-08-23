@@ -5,6 +5,7 @@ import CharacterList from './CharacterList';
 import FiltersContainer from './FiltersContainer';
 import LimitSelector from './LimitSelector';
 import CharactersPagination from './CharactersPagination';
+import Error from '../Error';
 import Spinner from '../Spinner';
 import { fetchCharacters } from '../../state/actions/characters.actions';
 import {
@@ -17,6 +18,7 @@ import './CharacterListContainer.scss';
 
 function CharacterListContainer({
   characters,
+  error,
   isLoading,
   dispatch,
   filters,
@@ -48,8 +50,9 @@ function CharacterListContainer({
         pages={pages}
         onSelectPage={handleSelectPage}
       />
+      {error && <Error message={error.message} />}
       {isLoading && <Spinner />}
-      {!isLoading && nameStartsWith && !characters.length ? (
+      {!isLoading && !error && nameStartsWith && !characters.length ? (
         <p>
           <em>No results match your criteria.</em>
         </p>
@@ -70,6 +73,7 @@ function CharacterListContainer({
 
 const mapStateToProps = (state) => ({
   characters: state.characters.characters,
+  error: state.characters.error,
   isLoading: state.characters.isLoading,
   filters: state.filters,
   pagination: state.pagination
