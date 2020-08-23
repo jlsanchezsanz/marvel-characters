@@ -12,31 +12,33 @@ exports[`App should match snapshot 1`] = `
       className="main"
     >
       <Switch>
-        <Route
-          component={
-            Object {
-              "$$typeof": Symbol(react.memo),
-              "WrappedComponent": [Function],
-              "compare": null,
-              "displayName": "Connect(CharacterListContainer)",
-              "type": [Function],
+        <Suspense
+          fallback={<Spinner />}
+        >
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
             }
-          }
-          exact={true}
-          path="/"
-        />
-        <Route
-          component={
-            Object {
-              "$$typeof": Symbol(react.memo),
-              "WrappedComponent": [Function],
-              "compare": null,
-              "displayName": "Connect(CharacterDetailsContainer)",
-              "type": [Function],
+            exact={true}
+            path="/"
+          />
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.lazy),
+                "_ctor": [Function],
+                "_result": null,
+                "_status": -1,
+              }
             }
-          }
-          path="/:id"
-        />
+            path="/:id"
+          />
+        </Suspense>
       </Switch>
     </main>
     <footer>

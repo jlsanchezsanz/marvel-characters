@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import CharacterListContainer from './components/CharacterListContainer';
-import CharacterDetailsContainer from './components/CharacterDetailsContainer';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Spinner from './components/Spinner';
 
 import './App.scss';
+
+const CharacterListContainer = React.lazy(() =>
+  import('./components/CharacterListContainer')
+);
+const CharacterDetailsContainer = React.lazy(() =>
+  import('./components/CharacterDetailsContainer')
+);
 
 export default function App() {
   return (
@@ -17,8 +23,10 @@ export default function App() {
         </header>
         <main className='main'>
           <Switch>
-            <Route exact path='/' component={CharacterListContainer} />
-            <Route path='/:id' component={CharacterDetailsContainer} />
+            <Suspense fallback={<Spinner />}>
+              <Route exact path='/' component={CharacterListContainer} />
+              <Route path='/:id' component={CharacterDetailsContainer} />
+            </Suspense>
           </Switch>
         </main>
         <footer>
