@@ -11,6 +11,7 @@ import {
   selectPage,
   selectLimit
 } from '../../state/actions/pagination.actions';
+import useDebounce from '../../hooks/useDebounce';
 
 import './CharacterListContainer.scss';
 
@@ -24,9 +25,11 @@ function CharacterListContainer({
   const { orderBy, nameStartsWith } = filters;
   const { page, pages, limit } = pagination;
 
+  const debouncedNameStartsWith = useDebounce(nameStartsWith, 500);
+
   useEffect(() => {
-    dispatch(fetchCharacters(orderBy, nameStartsWith, page, limit));
-  }, [dispatch, orderBy, nameStartsWith, page, limit]);
+    dispatch(fetchCharacters(orderBy, debouncedNameStartsWith, page, limit));
+  }, [dispatch, orderBy, debouncedNameStartsWith, page, limit]);
 
   function handleSelectPage(page) {
     dispatch(selectPage(page));
