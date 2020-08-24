@@ -1,16 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import OrderSelector from '../OrderSelector';
+import OrderBySelector from '../OrderBySelector';
 
 const setUpMount = (value, handleOnChange) => {
   const component = mount(
-    <OrderSelector value={value} onChange={handleOnChange} />
+    <OrderBySelector value={value} onChange={handleOnChange} />
   );
   return component;
 };
 
-describe('OrderSelector', () => {
+describe('OrderBySelector', () => {
   const handleOnChange = jest.fn();
 
   it('should render component', () => {

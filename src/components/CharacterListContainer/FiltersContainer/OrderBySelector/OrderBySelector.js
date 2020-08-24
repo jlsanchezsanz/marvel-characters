@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function OrderSelector({ value, onChange }) {
+export default function OrderBySelector({ value, onChange }) {
   return (
     <select
       name='orderBy'
@@ -17,7 +17,7 @@ export default function OrderSelector({ value, onChange }) {
   );
 }
 
-OrderSelector.propTypes = {
+OrderBySelector.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired
 };

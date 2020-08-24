@@ -26,56 +26,29 @@ describe('FiltersContainer', () => {
     const name = 'orderBy';
     const value = '-name';
     const component = setUpMount(state);
-    const select = component.find('OrderSelector');
+    const orderSelector = component.find('OrderBySelector');
 
     expect(store.dispatch).not.toHaveBeenCalled();
-    select.props().onChange({ target: { value, name } });
+    orderSelector.props().onChange({ target: { value, name } });
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateFilters({ [name]: value })
+      updateFilters({ orderBy: value })
     );
   });
 
-  it('should update filters on nameStartsWith change', () => {
+  it('should update filters on search input change', () => {
     const name = 'nameStartsWith';
-    const value = 'spi';
+    const value = 'spider';
     const component = setUpMount(state);
-    const input = component.find('input');
+    const searchInput = component.find('SearchByNameInput');
 
     expect(store.dispatch).not.toHaveBeenCalled();
-    input.simulate('change', { target: { value, name } });
+    searchInput.props().onChange({ target: { value, name } });
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateFilters({ [name]: value })
+      updateFilters({ nameStartsWith: value })
     );
-  });
-
-  it('should update filters on nameStartsWith change if length === 0', () => {
-    const name = 'nameStartsWith';
-    const value = '';
-    const component = setUpMount(state);
-    const input = component.find('input');
-
-    expect(store.dispatch).not.toHaveBeenCalled();
-    input.simulate('change', { target: { value, name } });
-
-    expect(store.dispatch).toHaveBeenCalledTimes(1);
-    expect(store.dispatch).toHaveBeenCalledWith(
-      updateFilters({ [name]: value })
-    );
-  });
-
-  it('should not update filters on nameStartsWith change if 3 > length > 0', () => {
-    const name = 'nameStartsWith';
-    const value = 'sp';
-    const component = setUpMount(state);
-    const input = component.find('input');
-
-    expect(store.dispatch).not.toHaveBeenCalled();
-    input.simulate('change', { target: { value, name } });
-
-    expect(store.dispatch).not.toHaveBeenCalled();
   });
 });

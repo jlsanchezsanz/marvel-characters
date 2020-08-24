@@ -30,33 +30,37 @@ exports[`FiltersContainer should render component 1`] = `
     <form
       className="filters"
     >
-      <div
-        className="input-group"
+      <SearchByNameInput
+        onChange={[Function]}
       >
-        <input
-          autoComplete="off"
-          className="form-control border-right-0 border"
-          name="nameStartsWith"
-          onChange={[Function]}
-          placeholder="Search name"
-          type="text"
-        />
-        <span
-          className="input-group-append"
+        <div
+          className="input-group"
         >
-          <div
-            className="input-group-text"
+          <input
+            autoComplete="off"
+            className="form-control border-right-0 border"
+            name="nameStartsWith"
+            onChange={[Function]}
+            placeholder="Search name"
+            type="text"
+          />
+          <span
+            className="input-group-append"
           >
-            <i
-              className="fa fa-search"
-            />
-          </div>
-        </span>
-      </div>
+            <div
+              className="input-group-text"
+            >
+              <i
+                className="fa fa-search"
+              />
+            </div>
+          </span>
+        </div>
+      </SearchByNameInput>
       <div
         className="filters__order-by"
       >
-        <OrderSelector
+        <OrderBySelector
           onChange={[Function]}
           value="name"
         >
@@ -87,7 +91,7 @@ exports[`FiltersContainer should render component 1`] = `
               Modified Desc
             </option>
           </select>
-        </OrderSelector>
+        </OrderBySelector>
       </div>
     </form>
   </FiltersContainer>

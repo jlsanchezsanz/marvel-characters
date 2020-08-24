@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchByNameInput should render component 1`] = `
+<SearchByNameInput
+  onChange={[MockFunction]}
+  value=""
+>
+  <div
+    className="input-group"
+  >
+    <input
+      autoComplete="off"
+      className="form-control border-right-0 border"
+      name="nameStartsWith"
+      onChange={[Function]}
+      placeholder="Search name"
+      type="text"
+    />
+    <span
+      className="input-group-append"
+    >
+      <div
+        className="input-group-text"
+      >
+        <i
+          className="fa fa-search"
+        />
+      </div>
+    </span>
+  </div>
+</SearchByNameInput>
+`;
