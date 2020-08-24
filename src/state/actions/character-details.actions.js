@@ -8,6 +8,7 @@ import {
   CHARACTERS_ENDPOINT,
   API_KEY
 } from '../../constants/config.constants';
+import { CUSTOM_ERROR_MESSAGE } from '../../constants/error-messages.constants';
 
 export function fetchCharacterDetailsStart() {
   return {
@@ -41,5 +42,12 @@ export const fetchCharacterDetails = (id) => (dispatch) => {
       }
       dispatch(fetchCharacterDetailsSuccess(data));
     })
-    .catch((error) => dispatch(fetchCharacterDetailsError({ message: error })));
+    .catch((error) =>
+      dispatch(
+        fetchCharacterDetailsError({
+          message:
+            error && typeof error === 'string' ? error : CUSTOM_ERROR_MESSAGE
+        })
+      )
+    );
 };

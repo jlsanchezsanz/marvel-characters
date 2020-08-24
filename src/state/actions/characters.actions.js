@@ -9,6 +9,7 @@ import {
   CHARACTERS_ENDPOINT,
   API_KEY
 } from '../../constants/config.constants';
+import { CUSTOM_ERROR_MESSAGE } from '../../constants/error-messages.constants';
 
 export function fetchCharactersStart() {
   return {
@@ -37,7 +38,7 @@ function generateUrl(orderBy, nameStartsWith, page, limit) {
     `&orderBy=${orderBy}` +
     `&limit=${limit}` +
     `&offset=${page * limit - limit}` +
-    `${nameStartsWith &&  `&nameStartsWith=${nameStartsWith}`}`
+    `${nameStartsWith && `&nameStartsWith=${nameStartsWith}`}`
   );
 }
 
@@ -54,5 +55,12 @@ export const fetchCharacters = (orderBy, nameStartsWith, page, limit) => (
       dispatch(fetchCharactersSuccess(data));
       dispatch(updatePagination(data.total));
     })
-    .catch((error) => dispatch(fetchCharactersError({ message: error })));
+    .catch((error) =>
+      dispatch(
+        fetchCharactersError({
+          message:
+            error && typeof error === 'string' ? error : CUSTOM_ERROR_MESSAGE
+        })
+      )
+    );
 };

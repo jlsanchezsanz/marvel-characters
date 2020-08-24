@@ -20,6 +20,7 @@ import {
   CHARACTERS_ENDPOINT,
   API_KEY
 } from '../../../constants/config.constants';
+import { CUSTOM_ERROR_MESSAGE } from '../../../constants/error-messages.constants';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -87,6 +88,30 @@ describe('Character Details Actions', () => {
         status: error.message
       }
     });
+    return store.dispatch(fetchCharacterDetails(id)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch fetch error action when 400 <= status < 500 - empty string', () => {
+    const store = mockStore(initialState);
+    const expectedActions = [
+      startAction,
+      { ...errorAction, error: { message: CUSTOM_ERROR_MESSAGE } }
+    ];
+    fetchMock.getOnce(endpoint, Promise.reject(''));
+    return store.dispatch(fetchCharacterDetails(id)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('should dispatch fetch error action when 400 <= status < 500 - empty object', () => {
+    const store = mockStore(initialState);
+    const expectedActions = [
+      startAction,
+      { ...errorAction, error: { message: CUSTOM_ERROR_MESSAGE } }
+    ];
+    fetchMock.getOnce(endpoint, Promise.reject({}));
     return store.dispatch(fetchCharacterDetails(id)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
