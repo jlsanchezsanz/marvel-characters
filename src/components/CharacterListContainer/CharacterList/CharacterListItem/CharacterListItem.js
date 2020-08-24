@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './CharacterListItem.scss'
+
 export default function CharacterListItem({ character }) {
   return (
     <div className='card'>

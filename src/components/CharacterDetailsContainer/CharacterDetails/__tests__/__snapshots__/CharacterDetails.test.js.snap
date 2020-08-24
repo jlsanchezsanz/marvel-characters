@@ -22,11 +22,11 @@ exports[`CharacterDetails should display characters list 1`] = `
       <div
         className="card-body"
       >
-        <h5
+        <h1
           className="card-title"
         >
           3-D Man
-        </h5>
+        </h1>
         <p
           className="card-text"
         >

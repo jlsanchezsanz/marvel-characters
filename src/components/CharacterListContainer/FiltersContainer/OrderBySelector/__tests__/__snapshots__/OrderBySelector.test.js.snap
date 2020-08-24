@@ -6,7 +6,7 @@ exports[`OrderBySelector should render component 1`] = `
   value="name"
 >
   <select
-    className="form-control"
+    className="form-control order-by-selector"
     name="orderBy"
     onChange={[MockFunction]}
     value="name"

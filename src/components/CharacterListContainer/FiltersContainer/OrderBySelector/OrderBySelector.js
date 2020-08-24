@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './OrderBySelector.scss'
+
 export default function OrderBySelector({ value, onChange }) {
   return (
     <select
       name='orderBy'
-      className='form-control'
+      className='form-control order-by-selector'
       onChange={onChange}
       value={value}
     >

@@ -14,7 +14,7 @@ export default function CharacterDetails({ character }) {
         </div>
         <div className='col-md-8'>
           <div className='card-body'>
-            <h5 className='card-title'>{character.name}</h5>
+            <h1 className='card-title'>{character.name}</h1>
             <p className='card-text'>
               {character.description || 'No description available.'}
             </p>

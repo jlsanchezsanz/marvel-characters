@@ -2,13 +2,17 @@
 
 exports[`Spinner should match snapshot 1`] = `
 <div
-  className="spinner-border"
-  role="status"
+  className="spinner__wrapper"
 >
-  <span
-    className="sr-only"
+  <div
+    className="spinner-border"
+    role="status"
   >
-    Loading...
-  </span>
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
 </div>
 `;

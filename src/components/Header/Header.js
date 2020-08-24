@@ -5,7 +5,7 @@ import './Header.scss';
 
 export default function Header() {
   return (
-    <nav className='navbar navbar-light bg-light header'>
+    <nav className='navbar header'>
       <Link to='/'>
         <img
           src={require('../../assets/marvel_logo.svg')}

@@ -16,9 +16,7 @@ function FiltersContainer({ dispatch, orderBy }) {
   return (
     <form className='filters'>
       <SearchByNameInput onChange={handleFiltersChange} />
-      <div className='filters__order-by'>
-        <OrderBySelector value={orderBy} onChange={handleFiltersChange} />
-      </div>
+      <OrderBySelector value={orderBy} onChange={handleFiltersChange} />
     </form>
   );
 }
