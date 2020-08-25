@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Pagination } from 'react-bootstrap';
 
-import './CharactersPagination.scss'
+import './CharactersPagination.scss';
 
 export default function CharactersPagination({ page, pages, onSelectPage }) {
   return (
@@ -15,19 +15,21 @@ export default function CharactersPagination({ page, pages, onSelectPage }) {
         {page !== 1 && (
           <Pagination.Item onClick={() => onSelectPage(1)}>1</Pagination.Item>
         )}
-        {page > 2 && <Pagination.Ellipsis disabled />}
+        {page > 2 && page - 1 !== 2 && <Pagination.Ellipsis disabled />}
         {page > 2 && (
           <Pagination.Item onClick={() => onSelectPage(page - 1)}>
             {page - 1}
           </Pagination.Item>
         )}
         <Pagination.Item active>{page}</Pagination.Item>
-        {page > 2 && page < pages && (
+        {page > 2 && page < pages && page + 1 !== pages && (
           <Pagination.Item onClick={() => onSelectPage(page + 1)}>
             {page + 1}
           </Pagination.Item>
         )}
-        {page < pages - 1 && <Pagination.Ellipsis disabled />}
+        {page < pages - 1 && page + 1 !== pages - 1 && (
+          <Pagination.Ellipsis disabled />
+        )}
         {page < pages && (
           <Pagination.Item onClick={() => onSelectPage(pages)}>
             {pages}

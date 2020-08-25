@@ -5,10 +5,14 @@ exports[`CharacterListContainer should display error message 1`] = `
   message="Some error message"
 >
   <div
-    className="alert alert-danger"
-    role="alert"
+    className="error"
   >
-    Some error message
+    <div
+      className="alert alert-danger"
+      role="alert"
+    >
+      Some error message
+    </div>
   </div>
 </Error>
 `;
