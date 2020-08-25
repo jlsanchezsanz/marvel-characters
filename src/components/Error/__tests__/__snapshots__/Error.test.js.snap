@@ -2,9 +2,13 @@
 
 exports[`Error should match snapshot 1`] = `
 <div
-  className="alert alert-danger"
-  role="alert"
+  className="error"
 >
-  Some error message
+  <div
+    className="alert alert-danger"
+    role="alert"
+  >
+    Some error message
+  </div>
 </div>
 `;
