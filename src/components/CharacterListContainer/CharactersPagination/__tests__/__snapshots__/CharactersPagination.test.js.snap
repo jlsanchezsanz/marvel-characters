@@ -4,7 +4,7 @@ exports[`CharactersPagination should display pagination with given properties 1`
 <div
   className="pagination__wrapper"
 >
-  <ForwardRef>
+  <Pagination>
     <Prev
       disabled={true}
       onClick={[Function]}
@@ -28,6 +28,6 @@ exports[`CharactersPagination should display pagination with given properties 1`
       disabled={false}
       onClick={[Function]}
     />
-  </ForwardRef>
+  </Pagination>
 </div>
 `;

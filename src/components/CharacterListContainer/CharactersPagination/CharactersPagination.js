@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pagination } from 'react-bootstrap';
+
+import Pagination from './Pagination';
 
 import './CharactersPagination.scss';
 
