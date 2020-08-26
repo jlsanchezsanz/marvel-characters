@@ -16,7 +16,7 @@ export default function CharactersPagination({ page, pages, onSelectPage }) {
         {page !== 1 && (
           <Pagination.Item onClick={() => onSelectPage(1)}>1</Pagination.Item>
         )}
-        {page > 2 && page - 1 !== 2 && <Pagination.Ellipsis disabled />}
+        {page > 3 && <Pagination.Ellipsis disabled />}
         {page > 2 && (
           <Pagination.Item onClick={() => onSelectPage(page - 1)}>
             {page - 1}

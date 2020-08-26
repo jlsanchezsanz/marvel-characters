@@ -32,20 +32,8 @@ function CharacterDetailsContainer({ character, dispatch, isLoading, error }) {
   );
 }
 
-function getCharacterFromDetails(state) {
-  return state.characterDetails.characterDetails;
-}
-
-function getCharacterFromList(state, id) {
-  return state.characters.characters.find(
-    (character) => character.id.toString() === id
-  );
-}
-
-const mapStateToProps = (state, ownProps) => ({
-  character:
-    getCharacterFromDetails(state) ||
-    getCharacterFromList(state, ownProps.match.params.id),
+const mapStateToProps = (state) => ({
+  character: state.characterDetails.characterDetails,
   isLoading: state.characterDetails.isLoading,
   error: state.characterDetails.error
 });

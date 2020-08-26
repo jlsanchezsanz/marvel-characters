@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageItem should display page item 1`] = `
+<li
+  className="page-item"
+>
+  <button
+    className="page-link"
+    disabled={false}
+    onClick={[MockFunction]}
+  >
+    1
+  </button>
+</li>
+`;
