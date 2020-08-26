@@ -1,12 +1,14 @@
+@import '../../../styles/variables.scss';
+
 .limit-selector {
   &__wrapper {
     align-items: center;
     display: flex;
-    padding: 10px;
+    padding: var(--space);
   }
 
   &__label {
-    margin: 0 10px;
+    margin: 0 var(--space);
     white-space: nowrap;
   }
 }

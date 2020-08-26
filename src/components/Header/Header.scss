@@ -1,6 +1,8 @@
+@import '../../styles/variables.scss';
+
 .header {
-  background-color: #ec1d23;
+  background-color: var(--red-background);
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--space-2);
   padding: 0;
 }

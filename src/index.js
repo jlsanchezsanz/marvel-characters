@@ -1,5 +1,6 @@
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+import cssVars from 'css-vars-ponyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -9,6 +10,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { store } from './state/store';
 import './index.scss';
 import App from './App';
+
+cssVars({});
 
 ReactDOM.render(
   <React.StrictMode>

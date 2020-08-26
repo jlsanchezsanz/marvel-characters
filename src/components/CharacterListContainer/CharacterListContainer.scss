@@ -1,8 +1,10 @@
+@import '../../styles/variables.scss';
+
 .characters-list {
   &__total {
     align-items: center;
     display: flex;
-    padding: 10px;
+    padding: var(--space);
   }
 
   &__row {

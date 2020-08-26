@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .character-list {
   display: grid;
   list-style: none;
@@ -5,7 +7,7 @@
   padding: 0;
 
   &__item {
-    padding: 10px;
+    padding: var(--space);
   }
 
   @media only screen and (max-width: 767px) and (orientation: landscape),

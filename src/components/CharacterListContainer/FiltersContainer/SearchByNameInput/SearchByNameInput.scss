@@ -1,4 +1,6 @@
+@import '../../../../styles/variables.scss';
+
 .input-group {
-  margin-bottom: 10px;
+  margin-bottom: var(--space);
   width: auto;
 }

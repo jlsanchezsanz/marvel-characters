@@ -1,6 +1,8 @@
+@import '../../../styles/variables.scss';
+
 .pagination {
   margin: 0;
-  padding: 10px;
+  padding: var(--space);
 
   &__wrapper {
     display: flex;

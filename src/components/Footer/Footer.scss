@@ -1,4 +1,6 @@
+@import '../../styles/variables.scss';
+
 .footer {
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: var(--space-4);
+  padding: var(--space-2);
 }
