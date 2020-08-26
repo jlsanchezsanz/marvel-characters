@@ -21,12 +21,13 @@ const setUpMount = (initialState) => {
 
 describe('CharacterListContainer', () => {
   let component;
+  const pagination = { page: 1, pages: 2, limit: 20, total: 100 };
 
   it('should display loading message while loading', () => {
     component = setUpMount({
-      characters: { isLoading: true },
+      characters: { isLoading: true, characters: [] },
       filters: { orderBy: 'name' },
-      pagination: { page: 1, pages: 2, limit: 20 }
+      pagination
     });
     const loader = component.find('p');
     expect(loader).toBeDefined();
@@ -36,7 +37,7 @@ describe('CharacterListContainer', () => {
     component = setUpMount({
       characters: { characters: [{}, {}] },
       filters: { orderBy: 'name' },
-      pagination: { page: 1, pages: 2, limit: 20 }
+      pagination
     });
     const characterList = component.find('CharacterList');
     expect(characterList).toBeDefined();
@@ -46,7 +47,7 @@ describe('CharacterListContainer', () => {
     component = setUpMount({
       characters: { characters: [], isLoading: false },
       filters: { nameStartsWith: 'asd' },
-      pagination: { page: 1, pages: 2, limit: 20 }
+      pagination
     });
     const text = component.find('p').at(0).find('em').text();
     expect(text).toBe('No results match your criteria.');
@@ -60,7 +61,7 @@ describe('CharacterListContainer', () => {
         error: { message: 'Some error message' }
       },
       filters: {},
-      pagination: { page: 1, pages: 2, limit: 20 }
+      pagination
     });
     const error = component.find('Error');
     expect(error).toMatchSnapshot();
@@ -70,7 +71,7 @@ describe('CharacterListContainer', () => {
     component = setUpMount({
       characters: { characters: [{}, {}] },
       filters: { orderBy: 'name' },
-      pagination: { page: 1, pages: 2, limit: 20 }
+      pagination
     });
     const limitSelector = component.find('CharactersPagination').at(0);
     limitSelector.props().onSelectPage(2);
@@ -82,7 +83,7 @@ describe('CharacterListContainer', () => {
     component = setUpMount({
       characters: { characters: [{}, {}] },
       filters: { orderBy: 'name' },
-      pagination: { page: 1, pages: 2, limit: 20 }
+      pagination
     });
     const limitSelector = component.find('LimitSelector');
     limitSelector.props().onSelectLimit(50);

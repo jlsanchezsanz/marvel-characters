@@ -1,7 +1,17 @@
 .characters-list {
+  &__total {
+    align-items: center;
+    display: flex;
+    padding: 10px;
+  }
+
   &__row {
     display: flex;
     justify-content: flex-end;
+
+    &--space-between {
+      justify-content: space-between;
+    }
 
     @media only screen and (max-width: 767px) {
       flex-direction: column-reverse;

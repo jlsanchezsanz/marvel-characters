@@ -45,11 +45,16 @@ function CharacterListContainer({
     <div className='container'>
       <h1>Marvel characters list</h1>
       <FiltersContainer />
-      <CharactersPagination
-        page={page}
-        pages={pages}
-        onSelectPage={handleSelectPage}
-      />
+      <div className='characters-list__row characters-list__row--space-between'>
+        <div className='characters-list__total'>
+          {!!characters.length && `Showing ${pagination.total} results`}
+        </div>
+        <CharactersPagination
+          page={page}
+          pages={pages}
+          onSelectPage={handleSelectPage}
+        />
+      </div>
       {error && <Error message={error.message} />}
       {isLoading && <Spinner />}
       {!isLoading && !error && nameStartsWith && !characters.length ? (
