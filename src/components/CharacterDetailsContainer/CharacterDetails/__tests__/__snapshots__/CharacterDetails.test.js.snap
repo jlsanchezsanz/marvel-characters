@@ -38,8 +38,9 @@ exports[`CharacterDetails should display characters list 1`] = `
           <small
             className="text-muted"
           >
-            Last updated 
-            4/29/2014, 8:18:17 PM
+            Last updated
+             
+            Tue Apr 29 2014
           </small>
         </p>
       </div>

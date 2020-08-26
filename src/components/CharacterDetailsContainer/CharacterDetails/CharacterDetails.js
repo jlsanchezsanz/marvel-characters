@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import format from 'date-fns/esm/format';
 
 export default function CharacterDetails({ character }) {
   return (
@@ -20,7 +21,10 @@ export default function CharacterDetails({ character }) {
             </p>
             <p className='card-text'>
               <small className='text-muted'>
-                Last updated {new Date(character.modified).toLocaleString()}
+                Last updated{' '}
+                {new Date(
+                  character.modified.split('-').slice(0, 3).join('-')
+                ).toDateString()}
               </small>
             </p>
           </div>
