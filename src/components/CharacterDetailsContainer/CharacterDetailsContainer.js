@@ -21,7 +21,13 @@ function CharacterDetailsContainer({ character, dispatch, isLoading, error }) {
   ) : (
     <div className='character-details-container__wrapper container'>
       <Link to='/' className='character-details-container__back-button'>
-        <i className='fa fa-arrow-left'></i> All characters
+        <img
+          width='30'
+          height='auto'
+          src={require('../../assets/arrow-left-short.svg')}
+          alt='Back'
+        />{' '}
+        All characters
       </Link>
       {error ? (
         <Error message={error.message} />

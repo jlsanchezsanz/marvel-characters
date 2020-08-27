@@ -8,7 +8,9 @@
   }
 
   &__back-button {
+    align-items: center;
     align-self: flex-start;
+    display: flex;
     margin: var(--space-2) 0;
   }
 }

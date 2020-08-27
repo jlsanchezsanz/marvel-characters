@@ -37,8 +37,10 @@ exports[`FiltersContainer should render component 1`] = `
           className="input-group"
         >
           <input
+            aria-label="Search name"
             autoComplete="off"
             className="form-control border-right-0 border"
+            id="search-by-name"
             name="nameStartsWith"
             onChange={[Function]}
             placeholder="Search name"
@@ -50,8 +52,18 @@ exports[`FiltersContainer should render component 1`] = `
             <div
               className="input-group-text"
             >
-              <i
-                className="fa fa-search"
+              <img
+                alt="Search"
+                src={
+                  Object {
+                    "ReactComponent": Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "render": [Function],
+                    },
+                    "__esModule": true,
+                    "default": "search.svg",
+                  }
+                }
               />
             </div>
           </span>

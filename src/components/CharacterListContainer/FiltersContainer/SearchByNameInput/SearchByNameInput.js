@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './SearchByNameInput.scss'
+import './SearchByNameInput.scss';
 
 export default function SearchByNameInput({ onChange }) {
   function handleOnChange(event) {
@@ -14,16 +14,18 @@ export default function SearchByNameInput({ onChange }) {
   return (
     <div className='input-group'>
       <input
+        id='search-by-name'
         className='form-control border-right-0 border'
         type='text'
         name='nameStartsWith'
+        aria-label='Search name'
         autoComplete='off'
         placeholder='Search name'
         onChange={(e) => handleOnChange(e)}
       />
       <span className='input-group-append'>
         <div className='input-group-text'>
-          <i className='fa fa-search'></i>
+          <img src={require('../../../../assets/search.svg')} alt='Search' />
         </div>
       </span>
     </div>
