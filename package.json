@@ -10,6 +10,7 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "bootstrap-icons": "^1.0.0-alpha5",
+    "cross-env": "^7.0.2",
     "css-vars-ponyfill": "^2.3.2",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.14.1",
@@ -22,9 +23,9 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "cross-env AUTOPREFIXER_GRID=autoplace react-scripts start",
+    "build": "cross-env AUTOPREFIXER_GRID=autoplace react-scripts build",
+    "test": "cross-env AUTOPREFIXER_GRID=autoplace react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
