@@ -12,14 +12,14 @@
 
   @media only screen and (max-width: 767px) and (orientation: landscape),
     (min-width: 768px) {
-    grid-template: 1fr / repeat(2, 50%);
+    grid-template-columns: 50% 50%;
   }
 
   @media only screen and (min-width: 992px) {
-    grid-template: 1fr / repeat(4, 25%);
+    grid-template-columns: 25% 25% 25% 25%;
   }
 
   @media only screen and (min-width: 1200px) {
-    grid-template: 1fr / repeat(5, 20%);
+    grid-template-columns: 20% 20% 20% 20% 20%;
   }
 }
