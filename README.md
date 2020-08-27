@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Marvel Characters
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Installation and use](#installation-and-use)
+- [Running unit tests](#running-unit-tests)
+- [Build](#build)
+- [Technologies used](#technologies-used)
+- [Solution](#solution)
+- [Unit tests coverage](#unit-tets-coverage)
+- [Performance](#performance)
+- [Browsers](#browsers)
+- [Live demo](#live-demo)
 
-### `yarn start`
+## Installation and use
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone [this repository](https://github.com/jlsanchezsanz/marvel-characters.git).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2. Run `yarn` inside of `marvel-characters` project in order to install dependencies.
 
-### `yarn test`
+3. Run `yarn start` for a dev server and navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Running unit tests
 
-### `yarn build`
+Run `yarn test` to execute the unit tests and `yarn test:coverage` for a more detailed output with coverage info.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Build
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Run `yarn build` to build the project. The build artifacts will be stored in the `build/` directory.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies used
 
-### `yarn eject`
+Project is created using:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- bootstrap 4.5.2
+- bootstrap-icons 1.0.0-alpha5
+- node-sass 4.14.1
+- react 16.13.1
+- react-dom 16.13.1
+- react-redux 7.2.0
+- react-router-dom 5.2.0
+- redux 4.0.5
+- redux-thunk 2.3.0"
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Solution
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Since the application is based in two views (list and details) I decided to split the code in two main lazy loaded components: `CharacterListContainer` and `CharacterDetailsContainer`. These two correspond to the two available routes: `/` for the characters list and `/:id` for the details of the character with the given id.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I followed the higher order components approach and separated components with logic, like the ones that access the store and dispatch fetch actions (i.e. `CharacterListContainer`), from the ones that are merely presentational (i.e. `CharacterList`).
 
-## Learn More
+I splitted the state of the application in 4 main blocks:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- characters: contains the list of characters and the status of the request (loading/error).
+- characterDetails: contains the object with the character details and the status of the request (loading/error).
+- filters: contains the current value of the filters.
+- pagination: contains the info necessary for the pagination.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app will show an error message when API requests fail.
 
-### Code Splitting
+## Unit tests coverage
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+| % Stmts | % Branch | % Funcs | % Lines |
+| ------: | -------: | ------: | ------: |
+|   95.76 |      100 |   97.18 |    95.6 |
 
-### Analyzing the Bundle Size
+## Performance
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+These are the strategies used to improve the performance of the app:
 
-### Making a Progressive Web App
+- Lazy load `CharacterListContainer` and `CharacterDetailsContainer`
+- Start searching only when value length >= 3
+- Debounce API calls on search by name
+- Limit default number of characters per page to 10.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Browsers
 
-### Advanced Configuration
+Compatible with:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- Microsoft Edge 84.0.522.63
+- Internet Explorer 11
+- Google Chrome 84.0.4147.135
+- Firefox 79.0
+- Safari 13.1.2
 
-### Deployment
+## Live demo
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Access this [link](https://marvel-characters-list.herokuapp.com/) to see a live demo of the project.
