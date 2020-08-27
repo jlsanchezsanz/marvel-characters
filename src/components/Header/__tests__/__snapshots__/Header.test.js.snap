@@ -20,6 +20,7 @@ exports[`Header should match snapshot 1`] = `
           "default": "marvel_logo.svg",
         }
       }
+      width="100"
     />
   </Link>
 </nav>

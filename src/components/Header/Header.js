@@ -11,6 +11,7 @@ export default function Header() {
           src={require('../../assets/marvel_logo.svg')}
           alt='Marvel'
           height='40'
+          width='100'
         />
       </Link>
     </nav>
