@@ -9,12 +9,20 @@ import Spinner from '../Spinner';
 
 import './CharacterDetailsContainer.scss';
 
-function CharacterDetailsContainer({ character, dispatch, isLoading, error }) {
+function CharacterDetailsContainer({
+  character,
+  characterFromList,
+  dispatch,
+  isLoading,
+  error
+}) {
   let { id } = useParams();
 
   useEffect(() => {
-    dispatch(fetchCharacterDetails(id));
-  }, [dispatch, id]);
+    if (!characterFromList) {
+      dispatch(fetchCharacterDetails(id));
+    }
+  }, [dispatch, id, characterFromList]);
 
   return isLoading ? (
     <Spinner />
@@ -32,16 +40,29 @@ function CharacterDetailsContainer({ character, dispatch, isLoading, error }) {
       {error ? (
         <Error message={error.message} />
       ) : (
-        <CharacterDetails character={character} />
+        <CharacterDetails character={character || characterFromList} />
       )}
     </div>
   );
 }
 
-const mapStateToProps = (state) => ({
-  character: state.characterDetails.characterDetails,
-  isLoading: state.characterDetails.isLoading,
-  error: state.characterDetails.error
-});
+function getCharacterFromList(state, id) {
+  return state.characters.characters.find(
+    (character) => character.id.toString() === id
+  );
+}
+
+const mapStateToProps = (state, ownProps) => {
+  const characterFromList = getCharacterFromList(
+    state,
+    ownProps.match.params.id
+  );
+  return {
+    character: characterFromList || state.characterDetails.characterDetails,
+    characterFromList,
+    isLoading: state.characterDetails.isLoading,
+    error: state.characterDetails.error
+  };
+};
 
 export default connect(mapStateToProps)(CharacterDetailsContainer);

@@ -72,6 +72,17 @@ describe('CharacterDetailsContainer', () => {
     expect(store.dispatch).toHaveBeenCalledWith(fetchCharacterDetails(id));
   });
 
+  it('should not fetch character details if present in the list', () => {
+    component = setUpMount(
+      {
+        characters: { characters: [{ id: 1011334 }] },
+        characterDetails: { characterDetails: undefined }
+      },
+      { params: { id: id.toString() } }
+    );
+    expect(store.dispatch).not.toHaveBeenCalled();
+  });
+
   it('should display error message', () => {
     component = setUpMount(
       {
