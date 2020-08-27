@@ -60,4 +60,26 @@ describe('SearchByNameInput', () => {
 
     expect(handleOnChange).not.toHaveBeenCalled();
   });
+
+  it('should prevent default if enter key', () => {
+    const name = 'nameStartsWith';
+    const event = { target: { name }, key: 'Enter', preventDefault: jest.fn() };
+    const component = setUpMount('name', handleOnChange);
+    const input = component.find('input');
+
+    expect(event.preventDefault).not.toHaveBeenCalled();
+    input.simulate('keypress', event);
+
+    expect(event.preventDefault).toHaveBeenCalledTimes(1);
+  });
+
+  it('should prevent default if other key', () => {
+    const name = 'nameStartsWith';
+    const event = { target: { name }, key: 'a', preventDefault: jest.fn() };
+    const component = setUpMount('name', handleOnChange);
+    const input = component.find('input');
+
+    input.simulate('keypress', event);
+    expect(event.preventDefault).not.toHaveBeenCalled();
+  });
 });

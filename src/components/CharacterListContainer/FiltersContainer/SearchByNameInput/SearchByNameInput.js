@@ -4,6 +4,12 @@ import PropTypes from 'prop-types';
 import './SearchByNameInput.scss';
 
 export default function SearchByNameInput({ onChange }) {
+  function handleOnKeyPress(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  }
+
   function handleOnChange(event) {
     const { length } = event.target.value;
     if (length === 0 || length >= 3) {
@@ -21,7 +27,8 @@ export default function SearchByNameInput({ onChange }) {
         aria-label='Search name'
         autoComplete='off'
         placeholder='Search name'
-        onChange={(e) => handleOnChange(e)}
+        onKeyPress={handleOnKeyPress}
+        onChange={handleOnChange}
       />
       <span className='input-group-append'>
         <div className='input-group-text'>

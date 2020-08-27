@@ -43,6 +43,7 @@ exports[`FiltersContainer should render component 1`] = `
             id="search-by-name"
             name="nameStartsWith"
             onChange={[Function]}
+            onKeyPress={[Function]}
             placeholder="Search name"
             type="text"
           />
