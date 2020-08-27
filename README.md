@@ -7,9 +7,10 @@
 - [Build](#build)
 - [Technologies used](#technologies-used)
 - [Solution](#solution)
-- [Unit tests coverage](#unit-tets-coverage)
+- [Unit tests coverage](#unit-tests-coverage)
 - [Performance](#performance)
 - [Browsers](#browsers)
+- [Lighthouse](#lighthouse)
 - [Live demo](#live-demo)
 
 ## Installation and use
@@ -40,13 +41,15 @@ Project is created using:
 - react-redux 7.2.0
 - react-router-dom 5.2.0
 - redux 4.0.5
-- redux-thunk 2.3.0"
+- redux-thunk 2.3.0
 
 ## Solution
 
 Since the application is based in two views (list and details) I decided to split the code in two main lazy loaded components: `CharacterListContainer` and `CharacterDetailsContainer`. These two correspond to the two available routes: `/` for the characters list and `/:id` for the details of the character with the given id.
 
 I followed the higher order components approach and separated components with logic, like the ones that access the store and dispatch fetch actions (i.e. `CharacterListContainer`), from the ones that are merely presentational (i.e. `CharacterList`).
+
+Since most of the time the user will access character details view from character list view, we can spare an API request by taking that character's details from the list (the data is the same in both endpoints).
 
 I splitted the state of the application in 4 main blocks:
 
@@ -57,7 +60,7 @@ I splitted the state of the application in 4 main blocks:
 
 The app will show an error message when API requests fail.
 
-## Unit tests coverage
+## Unit tests coverage
 
 | % Stmts | % Branch | % Funcs | % Lines |
 | ------: | -------: | ------: | ------: |
@@ -71,6 +74,7 @@ These are the strategies used to improve the performance of the app:
 - Start searching only when value length >= 3
 - Debounce API calls on search by name
 - Limit default number of characters per page to 10.
+- Only fetch character details if not present in the stored list
 
 ## Browsers
 
@@ -81,6 +85,10 @@ Compatible with:
 - Google Chrome 84.0.4147.135
 - Firefox 79.0
 - Safari 13.1.2
+
+## Lighthouse
+
+![Lighthouse](./src/assets/lighthouse-results.png)
 
 ## Live demo
 
