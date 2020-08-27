@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateFilters } from '../../../state/actions/filters.actions';
+import { changeFilters } from '../../../state/actions/filters.actions';
 import SearchByNameInput from './SearchByNameInput';
 import OrderBySelector from './OrderBySelector';
 
@@ -10,7 +10,7 @@ import './FiltersContainer.scss';
 function FiltersContainer({ dispatch, orderBy }) {
   function handleFiltersChange(event) {
     const { name, value } = event.target;
-    dispatch(updateFilters({ [name]: value }));
+    dispatch(changeFilters({ [name]: value }));
   }
 
   return (

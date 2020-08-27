@@ -1,7 +1,6 @@
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 
+import { mockStore } from '../../../jest-helpers';
 import { charactersMock } from '../../../mocks/characters.mock';
 import {
   fetchCharacters,
@@ -22,9 +21,6 @@ import {
   API_KEY
 } from '../../../constants/config.constants';
 import { CUSTOM_ERROR_MESSAGE } from '../../../constants/error-messages.constants';
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
 
 describe('Characters Actions', () => {
   const startAction = {

@@ -12,3 +12,5 @@ export const UPDATE_FILTERS = '[Filters] Update';
 export const SELECT_PAGE = '[Pagination] Select page';
 export const SELECT_LIMIT = '[Pagination] Select limit';
 export const UPDATE_PAGINATION = '[Pagination] Update';
+
+export const UPDATE_PAGE_AND_FILTERS = '[General] Update page and filters';

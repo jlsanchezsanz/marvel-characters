@@ -2,8 +2,10 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { mockStore } from '../../../../state/__mocks__/store';
-import { updateFilters } from '../../../../state/actions/filters.actions';
+import { changeFilters } from '../../../../state/actions/filters.actions';
 import FiltersContainer from '../FiltersContainer';
+
+jest.mock('../../../../state/actions/filters.actions');
 
 let store;
 
@@ -33,7 +35,7 @@ describe('FiltersContainer', () => {
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateFilters({ orderBy: value })
+      changeFilters({ orderBy: value })
     );
   });
 
@@ -48,7 +50,7 @@ describe('FiltersContainer', () => {
 
     expect(store.dispatch).toHaveBeenCalledTimes(1);
     expect(store.dispatch).toHaveBeenCalledWith(
-      updateFilters({ nameStartsWith: value })
+      changeFilters({ nameStartsWith: value })
     );
   });
 });
