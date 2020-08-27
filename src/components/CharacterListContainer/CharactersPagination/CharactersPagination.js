@@ -23,7 +23,7 @@ export default function CharactersPagination({ page, pages, onSelectPage }) {
           </Pagination.Item>
         )}
         <Pagination.Item active>{page}</Pagination.Item>
-        {page > 2 && page < pages && page + 1 !== pages && (
+        {page > 2 && page < pages - 1 && (
           <Pagination.Item onClick={() => onSelectPage(page + 1)}>
             {page + 1}
           </Pagination.Item>

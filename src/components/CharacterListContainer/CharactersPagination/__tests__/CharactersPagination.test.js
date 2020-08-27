@@ -46,6 +46,16 @@ describe('CharactersPagination', () => {
     expect(handleSelectPage).not.toHaveBeenCalled();
   });
 
+  it('should display next item if page > 2 and page < pages - 1', () => {
+    component = setUpShallow(3, 6, handleSelectPage);
+    const next = component.find('PageItem').at(3);
+    expect(next.props().children).toBe(4);
+    expect(handleSelectPage).not.toHaveBeenCalled();
+    next.simulate('click');
+    expect(handleSelectPage).toHaveBeenCalledTimes(1);
+    expect(handleSelectPage).toHaveBeenCalledWith(4);
+  });
+
   it('should display first page if current page is not first page', () => {
     component = setUpShallow(2, 2, handleSelectPage);
     const first = component.find('PageItem').at(0);
