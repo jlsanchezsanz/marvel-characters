@@ -16,6 +16,11 @@ exports[`LimitSelector should render component 1`] = `
     value={20}
   >
     <option
+      value="10"
+    >
+      10
+    </option>
+    <option
       value="20"
     >
       20

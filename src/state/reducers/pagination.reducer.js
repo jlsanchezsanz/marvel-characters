@@ -3,7 +3,7 @@ import { SELECT_LIMIT, SELECT_PAGE, UPDATE_PAGINATION } from '../actions/types';
 export const initialState = {
   pages: 1,
   page: 1,
-  limit: 20,
+  limit: 10,
   total: 0
 };
 
