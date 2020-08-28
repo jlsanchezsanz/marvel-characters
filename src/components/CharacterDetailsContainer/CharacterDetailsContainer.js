@@ -40,7 +40,7 @@ function CharacterDetailsContainer({
       {error ? (
         <Error message={error.message} />
       ) : (
-        <CharacterDetails character={character || characterFromList} />
+        character && <CharacterDetails character={character} />
       )}
     </div>
   );

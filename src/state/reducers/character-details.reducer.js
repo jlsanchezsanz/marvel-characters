@@ -5,7 +5,7 @@ import {
 } from '../actions/types';
 
 export const initialState = {
-  isLoading: true,
+  isLoading: false,
   characterDetails: undefined,
   error: undefined
 };
