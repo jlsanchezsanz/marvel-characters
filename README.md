@@ -34,7 +34,6 @@ Run `yarn build` to build the project. The build artifacts will be stored in the
 Project is created using:
 
 - bootstrap 4.5.2
-- bootstrap-icons 1.0.0-alpha5
 - node-sass 4.14.1
 - react 16.13.1
 - react-dom 16.13.1
