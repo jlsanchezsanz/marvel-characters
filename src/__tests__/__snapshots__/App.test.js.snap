@@ -15,29 +15,31 @@ exports[`App should match snapshot 1`] = `
         <Suspense
           fallback={<Spinner />}
         >
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
+          <section>
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
               }
-            }
-            exact={true}
-            path="/"
-          />
-          <Route
-            component={
-              Object {
-                "$$typeof": Symbol(react.lazy),
-                "_ctor": [Function],
-                "_result": null,
-                "_status": -1,
+              exact={true}
+              path="/"
+            />
+            <Route
+              component={
+                Object {
+                  "$$typeof": Symbol(react.lazy),
+                  "_ctor": [Function],
+                  "_result": null,
+                  "_status": -1,
+                }
               }
-            }
-            path="/:id"
-          />
+              path="/:id"
+            />
+          </section>
         </Suspense>
       </Switch>
     </main>

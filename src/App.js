@@ -24,8 +24,10 @@ export default function App() {
         <main className='main'>
           <Switch>
             <Suspense fallback={<Spinner />}>
-              <Route exact path='/' component={CharacterListContainer} />
-              <Route path='/:id' component={CharacterDetailsContainer} />
+              <section>
+                <Route exact path='/' component={CharacterListContainer} />
+                <Route path='/:id' component={CharacterDetailsContainer} />
+              </section>
             </Suspense>
           </Switch>
         </main>
